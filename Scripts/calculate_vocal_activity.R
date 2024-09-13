@@ -30,11 +30,9 @@ convert_dttm_to_decimal <- function(dttm) {
 
 
 continents <- c("Africa", "Asia", "Europe", "North America", "South America")
-continents <- c("North America")
 
 for(c in continents){
- # counter = 0
-  if(c == "North America"){
+  if(c == "North America" | c == "South America"){
     months <- data.frame(name = c("mar2023", "apr2023", "may2023",
                                   "jun2023", "jul2023", "aug2023",
                                   "sept2023", "oct2023", "nov2023",
@@ -50,12 +48,13 @@ for(c in continents){
 
   for(m in 1:nrow(months)){
 
-   # counter = 0
-   # results_holder <- list()
+
     # focal month for setting up period variable
     this_month <- months[m,]
     if(file.exists(paste0(here('Results/Birdweather/activity_measures'),
                           "/", c,"/activity_measures_",this_month, ".csv"))){
+      cat('\n\n',c, this_month, "completed\n\n")
+      
       next
     }
     this_file <- list.files(path = paste0(here('Data/Birdweather'), "/", c), 
@@ -64,6 +63,7 @@ for(c in continents){
     
     # some data files might not exist
     if(rlang::is_empty(this_file)){
+      cat('\n\n',c, this_month, "doesn't exist\n\n")
       next
     }
     
@@ -71,7 +71,7 @@ for(c in continents){
     bw <- fread(this_file)
     
     # deal with different column names in each file
-    if(c == "Asia" | c == "Africa"){
+    if(c == "Asia" | c == "Africa" | c == "Europe" & m == 1){
       setnames(bw, old = c("confidence",
                            "species.commonName",
                            "coords.lat",
