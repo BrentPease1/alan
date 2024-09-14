@@ -5,11 +5,6 @@ library(suncalc)
 library(lutz)
 library(sf)
 library(activity)
-library(ggplot2)
-library(png)
-library(grid)
-library(cowplot)
-library(terra)
 
 # Convert dttm to decimal time
 convert_dttm_to_decimal <- function(dttm) {
@@ -87,8 +82,9 @@ for(c in continents){
       )
     }
     
-    # a blanket 0.5 confidence score filter
-    bw <- bw[Confidence >= 0.5,]
+    # a blanket 0.5 confidence score filter (Sept 13 update: 0.625)
+    bw <- bw[Confidence >= 0.625,]
+    
     
     # going to filter species list down 
     bw[, station_ID := .GRP, .(Station, Latitude, Longitude)]
@@ -172,6 +168,8 @@ for(c in continents){
       # okay, let's first onset - dawn  
       # get timestamps between 3am and solar noon
       threeam <- hms("03:00:00")
+      midnight <- hms("00:00:01")
+      
       first_onset <- single_spp_dets[time_local_real >= threeam & time_local_real < hms::as_hms(solarNoon),]
       if(nrow(first_onset) == 0){
         next # sometimes a species has 100 detections but not at the focal time
