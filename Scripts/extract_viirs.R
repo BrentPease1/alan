@@ -29,7 +29,8 @@ for(c in continents){
                                   "dec23", "jan24", "feb24",
                                   "mar24"))
   }
-  
+  va_holder <- list()
+  va_counter = 0
   for(m in 1:nrow(months)){
     
 
@@ -102,17 +103,19 @@ for(c in continents){
     # bring back to vocal activity
     va <- merge(va, nt_estimates, by.x = "lat_lon", by.y = "ID")
     
-    # Assuming ev_ces is your data.table
+    # categorize nighttime light
     va[, nt_cat := fcase(
-      cf_cvg < quantile(cf_cvg, probs = 0.1, na.rm = T), "low",
-      cf_cvg >= quantile(cf_cvg, probs = 0.1, na.rm = T) & cf_cvg < quantile(cf_cvg, probs = 0.5, na.rm = T), "med",
-      cf_cvg >= quantile(cf_cvg, probs = 0.5, na.rm = T), "high"
+      cf_cvg < quantile(cf_cvg, probs = 0.334, na.rm = T), "low",
+      cf_cvg >= quantile(cf_cvg, probs = 0.334, na.rm = T) & cf_cvg < quantile(cf_cvg, probs = 0.667, na.rm = T), "med",
+      cf_cvg >= quantile(cf_cvg, probs = 0.667, na.rm = T), "high"
     )]
     
-
+    va_holder[[va_counter]] <- va
   } # months
      
 } #continents
   
 
 # some exploring
+
+va[category == 'first_onset', mean(value,na.rm = T), by = nt_cat]
