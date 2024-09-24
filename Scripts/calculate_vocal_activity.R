@@ -116,12 +116,30 @@ for(c in continents){
       # remove noise, mammals, insects, and amphibians
       not_interested <- c("Engine", "Siren", "Coyote", "Dog", 
                           "Eastern Gray Squirrel", "Red Squirrel",
-                          "Power tools")
+                          "Power tools", "Fireworks", "Gray Wolf", "Gun",
+                          "Honey Bee","Spring Peeper")
       total_spp <- bw[!(`Common Name` %in% not_interested),]
       total_spp <- total_spp[!(`Common Name` %like% "Frog"),]
       total_spp <- total_spp[!(`Common Name` %like% "Treefrog"),]
       total_spp <- total_spp[!(`Common Name` %like% "Bullfrog"),]
       total_spp <- total_spp[!(`Common Name` %like% "Cricket"),]
+      total_spp <- total_spp[!(`Common Name` %like% "Toad"),]
+      total_spp <- total_spp[!(`Common Name` %like% "Columbian Trig"),]
+      total_spp <- total_spp[!(`Common Name` %like% "Katydid"),]
+      total_spp <- total_spp[!(`Common Name` %like% "Chipmunk"),]
+      total_spp <- total_spp[!(`Common Name` %like% "Conehead"),]
+      total_spp <- total_spp[!(`Common Name` %like% "Gryllus assimilis"),]
+      total_spp <- total_spp[!(`Common Name` %like% "Human"),]
+      total_spp <- total_spp[!(`Common Name` %like% "Monkey"),]
+
+      
+      
+      
+      
+      
+      
+      
+      
       
       # OK, these next lines first calculate
       # how many detections a given species has 
