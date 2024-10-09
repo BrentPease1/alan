@@ -1,0 +1,35 @@
+sci_name_botw,good,notes
+Accipiter nisus,yes,NA
+Acrocephalus arundinaceus,yes,NA
+Ardea alba,yes,NA
+Botaurus stellaris,no,delete western hemisphere records
+Calidris maritima,no,"delete all; only two points, 1 on US west coast where doesn't occur and 1 inland in Germany"
+Carpodacus erythrinus,yes,NA
+Catharus minimus,no,delete one record from California
+Coccothraustes coccothraustes,no,delete western hemisphere records
+Emberiza schoeniclus,yes,NA
+Falco columbarius,yes,NA
+Fringilla coelebs,yes,NA
+Helopsaltes ochotensis,no,delete all 
+Himantopus himantopus,yes,NA
+Larus marinus,yes,NA
+Larus michahellis,yes,NA
+Larus ridibundus,yes,NA
+Limnodromus griseus,yes,NA
+Limosa limosa,yes,NA
+Loxia leucoptera,yes,NA
+Pandion haliaetus,yes,NA
+Passerella iliaca,yes,Map must be just for red fox sparrow; points out west are fine
+Phoenicurus ochruros,yes,NA
+Phylloscopus collybita,no,delete western hemisphere records
+Podiceps grisegena,yes,NA
+Podiceps nigricollis,yes,NA
+Puffinus puffinus,yes,NA
+Rissa tridactyla,yes,NA
+Saxicola torquatus,yes,NA
+Setophaga castanea,yes,NA
+Setophaga pinus,no,"omit 4 points in west (~CO, ID, WA, CA)"
+Somateria mollissima,yes,NA
+Turdus iliacus,no,delete western hemisphere records
+Turdus torquatus,yes,NA
+Zapornia pusilla,no,delete all
