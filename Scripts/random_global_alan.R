@@ -10,7 +10,7 @@ continents <- st_as_sf(continents)
 # fix geometries
 continents <- st_make_valid(continents)
 
-sample_locs <- st_sample(continents, 8653)
+sample_locs <- st_sample(continents, 8653) #number of unique lat/lons for birdweather
 sample_locs <- data.table(lat = st_coordinates(sample_locs)[,2],
                           lon =st_coordinates(sample_locs)[,1])
 
