@@ -12,9 +12,9 @@ library(MetBrewer)
 setDTthreads(0)
 
 # overwrite current files?
-overwrite <- T
+overwrite <- F
 
-
+if(!file.exists(here('Results/Birdweather/row_counter/birdweather_row_counter.csv') | overwrite == T)){
 confidence_cutoff <- c(0.75)
 detection_filter <- c(100)
 continents <- c("Africa", "Asia", "Europe", "North America", "Oceania", "South America")
@@ -154,6 +154,10 @@ fwrite(holder,
 
 
 cat('\n\n','ALL DONE','at', as.character(Sys.time()), "\n\n")
+} else{
+  holder <- here('Results/Birdweather/row_counter/birdweather_row_counter.csv'))
+}
+
 
 # Visualize
 
@@ -161,23 +165,6 @@ cat('\n\n','ALL DONE','at', as.character(Sys.time()), "\n\n")
 holder[, month_year := str_replace(month_year, "20", "")]
 # get factor
 holder[, month_yr_factor := factor(month_year, levels = unique(month_year))]
-
-# Plot
-ggplot(holder, aes(x = month_yr_factor)) +
-  # Stacked bar for unfiltered rows (bottom layer, transparent)
-  geom_bar(aes(y = unfiltered_rows), stat = "identity", fill = "skyblue", alpha = 0.5) +
-  # Stacked bar for detection filter rows (top layer, transparent)
-  geom_bar(aes(y = detection_filter_rows), stat = "identity", fill = "orange", alpha = 0.5) +
-  # Labels and theme
-  labs(
-    x = "Month of Year",
-    y = "Number of Detections",
-   # title = "Monthly Detection Counts (Unfiltered vs. Detection-Filtered)"
-  ) +
-  scale_y_continuous(labels = comma) +
-  theme_minimal() +
-  theme(axis.text = element_text(angle = 45, hjust = 1))
-
 
 # Choose colors from the MetBrewer Hiroshige palette
 colors <- MetBrewer::MetPalettes$Hiroshige[[1]][c(1, 9)]  # Select two colors from the Hiroshige palette
@@ -189,7 +176,6 @@ ggplot(holder, aes(x = month_yr_factor)) +
   labs(
     x = "Month of Year",
     y = "Number of Detections",
-  #  title = "Monthly Detection Counts (Unfiltered vs. Detection-Filtered)"
   ) +
   scale_y_continuous(labels = comma) + 
   theme_minimal() +
