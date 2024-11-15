@@ -4,7 +4,7 @@ library(janitor)
 library(glmmTMB)
 
 # AvoNET trat database
-setwd(here::here("data/ELEData/TraitData"))
+setwd(here::here("data"))
 avo <- readr::read_csv("AVONET1_BirdLife.csv")
 
 # key for joining up birdweather, EltonTraits, etc.
