@@ -7,7 +7,7 @@ library(rworldmap)
 setDTthreads(0)
 overwrite = T
 # script outline:
-#   - read in vocalization activity measures calculated with Scripts/calculate_vocal_activity.R
+#   - read in vocalization activity measures calculated with Scripts/101_data-prep_calculate_vocal_activity_v02.R
 #   - read in corresponding month of nighttime_light values
 #   - extract point-level values
 #   - consider buffers? 500m buffer around point? does effect dissapate or strengthen with distance from point? e.g., 1km buffer, area is saturated with light
