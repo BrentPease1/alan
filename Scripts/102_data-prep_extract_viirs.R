@@ -57,8 +57,8 @@ if(!file.exists(here('Results/VIIRS/vocal_activity_annotated.csv')) | overwrite 
       for(f in 1:length(files)){
         va <- fread(files[f])
         
-        # I can't believe I forgot to add the confidence and filter level column to
-        # the activity measure script!!
+        # I forgot to add the confidence and filter level column to
+        # the activity measure script so adding in here
         conf_value <- as.numeric(sub(".*_conf_([0-9.]+)_.*", "\\1", files[f]))
         det_value <- as.numeric(sub(".*_det_([0-9]+)\\.csv", "\\1", files[f]))
         va[, conf_filter := conf_value]
