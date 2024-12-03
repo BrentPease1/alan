@@ -11,22 +11,6 @@ setDTthreads(0)
 # overwrite current files?
 overwrite <- T
 
-# Convert dttm to decimal time
-# convert_dttm_to_decimal <- function(dttm) {
-#   hours <- hour(dttm)
-#   minutes <- minute(dttm)
-#   seconds <- second(dttm)
-#   return(hours + minutes / 60 + seconds / 3600)
-# }
-
-# sept 13 checkpoint tasks ####
-# Continue tinkering with data/code
-#Calculate response variables for CARW
-#Morning onset: time of first detection - local sunrise
-#Morning median: time of 50% detection - local sunrise
-#Evening cessation: time of last detection - local sunset
-#Plot results against ALAN & maybe experiment with an initial model
-#Look at resolution of ALAN data / temporal variation in it
 
 confidence_cutoff <- c(0, 0.5, 0.75)
 detection_filter <- c(10,25,100)
