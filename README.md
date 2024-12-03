@@ -12,3 +12,6 @@ ________________________________________________________________________________
 ## Abstract
 
 ## Repository Directory
+
+### Scripts
+ * [101_data-prep_calculate_vocal_activity_v02.R](./Scripts/101_data-prep_calculate_vocal_activity_v02.R)
