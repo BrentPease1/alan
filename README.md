@@ -14,4 +14,4 @@ ________________________________________________________________________________
 ## Repository Directory
 
 ### Scripts
- * [101_data-prep_calculate_vocal_activity_v02.R](./Scripts/101_data-prep_calculate_vocal_activity_v02.R)
+ * [101_data-prep_calculate_vocal_activity_v02.R](./Scripts/101_data-prep_calculate_vocal_activity_v02.R). Script to calculate morning onset and evening cessation from raw BirdWeather data downloads. NOTE: raw BirdWeather data files are too large to include in this directory, but are available for download at: *insert link* 
