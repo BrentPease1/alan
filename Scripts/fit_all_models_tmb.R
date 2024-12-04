@@ -36,7 +36,6 @@ elton <- read.delim("bird_elton_trait.txt") |>
 
 # filtered and processed birdweather data
 load("cessation_data_conf_0.75_det_100_grid_10.RData") # cessation of evening vocalization
-load("median_data_conf_0.75_det_100.RData")            # median vocalization time for morning
 load("onset_data_conf_0.75_det_100_grid_10.RData")     # onset of vocalization in the morning
 
 # updated name key to correct for some idiosyncracies between AvoNet and BirdLife names
@@ -98,47 +97,6 @@ d_e <- final_cess |>
                  low_sc = as.numeric(scale (for_strat_ground + for_strat_understory)),
                  mass_sc = as.numeric(scale(log(mass)))) 
 
-# similar data processing for morning median 
-d_med <- final_med |> 
-  dplyr::ungroup() |>
-  dplyr::rename(sci_name_bw = sci_name) |> 
-  dplyr::left_join(
-    avo |> 
-      janitor::clean_names() |> 
-      dplyr::rename(sci_name_avo = species1) |> 
-      dplyr::right_join(key2) |>
-      dplyr::group_by(sci_name_bw) |> 
-      dplyr::summarise(hand_wing_index = mean(hand_wing_index), 
-                       habitat = unique(habitat), 
-                       migration = unique(migration), 
-                       range_size = mean(range_size)) |> 
-      dplyr::distinct() |> 
-      dplyr::slice(1) |> 
-      dplyr::ungroup()) |> 
-  dplyr::mutate(alan_sc = as.numeric(scale(log1p(avg_rad))),
-                lat_sc = as.numeric(scale(abs(lat))),
-                value_hr = value / 60,
-                range_size_sc = as.numeric(scale(log(range_size)))) |> 
-  dplyr::rename(sci_name = sci_name_bw) |> 
-  dplyr::group_by(sci_name, week) |> 
-  dplyr::mutate(sp_week = dplyr::cur_group_id()) |> 
-  dplyr::group_by(sci_name, grid_ID_cell_5, week) |> 
-  dplyr::mutate(sp_cell5_week = dplyr::cur_group_id()) |> 
-  dplyr::group_by(sci_name, grid_ID_cell_10, week) |> 
-  dplyr::mutate(sp_cell10_week = dplyr::cur_group_id()) |> 
-  dplyr::group_by(sci_name, grid_ID_cell_15, week) |> 
-  dplyr::mutate(sp_cell15_week = dplyr::cur_group_id()) |> 
-  dplyr::ungroup() |> 
-  dplyr::left_join(cavity) |> 
-  dplyr::mutate(cavity = factor(cavity)) |> 
-  dplyr::left_join( elton ) |> 
-  dplyr::mutate(across(starts_with("for_strat"), function(x) x / 100)) |> 
-  dplyr::mutate( inv_sc = as.numeric(scale(diet_inv)), 
-                 ground_sc = as.numeric(scale(for_strat_ground)), 
-                 under_sc = as.numeric(scale(for_strat_understory)), 
-                 low_sc = as.numeric(scale (for_strat_ground + for_strat_understory)),
-                 mass_sc = as.numeric(scale(log(mass)))) 
-
 # same data processing for morning onset
 d_onset <- final |> 
   dplyr::ungroup() |>
@@ -182,7 +140,7 @@ d_onset <- final |>
 
 # clean up environment & save memory - remove uneeded tables
 rm(avo, cavity, elton, final, 
-   final_cess, final_med, key, key2)
+   final_cess, key, key2)
 
 # base model, evening cessation
 # fixed effect of light pollution (alan_sc)
@@ -225,41 +183,6 @@ save(
   d_e, 
   e1, e2, e3, e4, e5,
   file = "tmb_evening_models_family.RData" )
-
-# base model, morning median vocalization time
-# fixed effect of light pollution (alan_sc)
-# nested random intercept and slope for alan_sc by family and species x 5 deg cell x week
-med1 <- glmmTMB::glmmTMB(
-  value_hr ~ 1 + alan_sc + (1 + alan_sc | family / sp_cell5_week),
-  data = d_med)
-
-# Latitude model, morning median vocalization time
-# fixed effects of light pollution, latitude (absolute), and their interaction
-# random intercept and slopes by family and species x week (notice the different grouping - no grid cell)
-med2 <- glmmTMB::glmmTMB(
-  value_hr ~ 1 + alan_sc + lat_sc + alan_sc:lat_sc + (1 + alan_sc + lat_sc + alan_sc:lat_sc | family / sp_week),
-  data = d_med)
-
-# Range size model, morning median
-med3 <-glmmTMB:: glmmTMB(
-  value_hr ~ 1 + alan_sc + range_size_sc + alan_sc:range_size_sc + (1 + alan_sc | family / sp_cell5_week),
-  data = d_med)
-
-# Cavity model, morning median
-med4 <- glmmTMB::glmmTMB(
-  value_hr ~ 1 + alan_sc + cavity + alan_sc:cavity + (1 + alan_sc | family / sp_cell5_week),
-  data = d_med)
-
-# % Ground foraging model, morning median
-med5 <- glmmTMB::glmmTMB(
-  value_hr ~ 1 + alan_sc + ground_sc + alan_sc:ground_sc + (1 + alan_sc | family / sp_cell5_week),
-  data = d_med)
-
-setwd(here::here("results"))
-save(
-  d_med, 
-  med1, med2, med3, med4, med5,
-  file = "tmb_median_models_family.RData")
 
 # base model, morning onset vocalization time
 # fixed effect of light pollution (alan_sc)
