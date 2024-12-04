@@ -6,6 +6,7 @@ library(biscale)
 library(janitor)
 library(ggtree)
 library(cowplot)
+library(glmmTMB)
 
 data("BirdTree_trees")
 data("bird.families")
@@ -59,11 +60,11 @@ family_map <- focal_spp |>
 my_tree$tip.label <- family_map[my_tree$tip.label]
 
 setwd(here::here("results"))
-load("m14_tmb_family.RData")
+load("tmb_onset_models_family.RData")
 
-m14_ranef <- glmmTMB::ranef(m14)
+m1_ranef <- glmmTMB::ranef(m1)
 
-fam_re <- m14_ranef$cond$family |> 
+fam_re <- m1_ranef$cond$family |> 
   tibble::as_tibble(rownames = "tip.label") |> 
   janitor::clean_names() |> 
   dplyr::rename(tip.label = tip_label)
@@ -77,7 +78,7 @@ p <- ggtree::ggtree( my_tree, layout = "rectangular", linewidth = 0.2)
 
 p2 <- p %<+% fam_bi + 
   geom_tippoint( aes(color = bi_class), size = 1.5) +
-  bi_scale_color(pal = "BlueOr", dim = 2, rotate_pal = TRUE) +
+  biscale::bi_scale_color(pal = "BlueOr", dim = 2, rotate_pal = TRUE) +
   theme(legend.position = "none") +
   geom_tiplab(aes(color = bi_class), offset = 1.5, size = 2.5) +
   theme(plot.margin = unit(c(2, 20, 2, 2), "mm")) +
@@ -95,7 +96,7 @@ cowplot::ggdraw() +
   draw_plot( leg, 0.08, 0.65, 0.4, 0.4)
 
 ggsave(
-  filename = "intercept_slope_family4.png", 
+  filename = "figure_04a.png", 
   width = 4.25, 
   height = 7.2, 
   units = "in", 
