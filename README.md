@@ -71,7 +71,7 @@ ________________________________________________________________________________
       | sci_name | BirdWeather scientific name |
       | sci_name_syn | Synonym found using taxize R package |
       
-* [traits] Folder containing the trait tables
+* [traits](./data/traits) Folder containing the trait tables
   * [avonet.csv](./data/traits/avonet.csv) This table is from the AVONET databse; see [Tobias et al. 2022](https://onlinelibrary.wiley.com/doi/10.1111/ele.13898) for details. The relevant column that we use in the analysis is the `Range.Size` column, which is the area (in sq. km) of the species' geoegraphic range.     
 *  [ELEData](./data/ELEData) Contains [AVONET](https://figshare.com/s/b990722d72a26b5bfead) and [EltonTraits 1.0](https://figshare.com/collections/EltonTraits_1_0_Species-level_foraging_attributes_of_the_world_s_birds_and_mammals/3306933/1) datasets. Also contains output from scripts for dealing with taxonomy differences and cavity nesting. 
  
