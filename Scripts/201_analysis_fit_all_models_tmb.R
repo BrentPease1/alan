@@ -16,7 +16,7 @@ cavity <- readr::read_csv("cavity.csv") |>
   dplyr::rename(sci_name = sci_name_bw)
 
 # EltonTraits database
-elton <- read.delim("elton.txt") |> 
+elton <- read.delim(here::here("data/traits/elton.txt")) |> 
   janitor::clean_names() |> 
   dplyr::select( family = bl_family_latin, 
                  sci_name_elton = scientific,
