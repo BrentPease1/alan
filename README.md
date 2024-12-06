@@ -79,8 +79,7 @@ ________________________________________________________________________________
     | com_name | Common name (BirdWeather) |
     | sci_name_bw | Scientific name (BirdWeather) |
     | cavity | Binary variable indicating whether species nests in cavities (1) or not (0) |
-*  [ELEData](./data/ELEData) Contains [AVONET](https://figshare.com/s/b990722d72a26b5bfead) and [EltonTraits 1.0](https://figshare.com/collections/EltonTraits_1_0_Species-level_foraging_attributes_of_the_world_s_birds_and_mammals/3306933/1) datasets. Also contains output from scripts for dealing with taxonomy differences and cavity nesting. 
- 
+  * [elton.txt](./data/traits/elton.txt) This table comes from [EltonTraits 1.0](https://figshare.com/collections/EltonTraits_1_0_Species-level_foraging_attributes_of_the_world_s_birds_and_mammals/3306933/1). It contains many columns; the relevant ones used in our analyses are taxonomic family `BLFamilyLatin`, proportion ground foraging `ForStrat.ground`, and whether or not species is nocturnal `Nocturnal`.  
 * [vocalization_activity](./data/vocalization_activity) Contains output from [101_data-prep_calculate_vocal_activity.R](./Scripts/101_data-prep_calculate_vocal_activity.R). These files are the response variables in primary analyses.
 
 ### Results
