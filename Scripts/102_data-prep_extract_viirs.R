@@ -10,8 +10,7 @@ overwrite = T
 #   - read in vocalization activity measures calculated with Scripts/101_data-prep_calculate_vocal_activity_v02.R
 #   - read in corresponding month of nighttime_light values
 #   - extract point-level values
-#   - consider buffers? 500m buffer around point? does effect dissapate or strengthen with distance from point? e.g., 1km buffer, area is saturated with light
-#   - Sept 17 update: I considered buffers for 60 cities and point level radiance had highest correlation with city pop.
+
 
 
 # Read in calculated vocalization activity ####
@@ -156,9 +155,9 @@ if(!file.exists(here('Results/VIIRS/vocal_activity_annotated.csv')) | overwrite 
   out <- fread(here('Results/VIIRS/vocal_activity_annotated.csv'))
 }
 
-# out_simple <- out[conf_filter == 0.5 & det_filter == 25,]
-# fwrite(out_simple, here('Results/VIIRS/vocal_activity_annotated_conf05_det25.csv'))
-# fwrite(out_simple[!duplicated(lat_lon)], here('Results/VIIRS/vocal_activity_annotated_conf05_det25_nodups.csv'))
+# -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+
+# ASSIGN GRID CELLS TO BirdWeather stations
 
 # assign grid cell value ####
 out[, lat_lon := .GRP, .(lat, lon)]
@@ -219,19 +218,3 @@ out <- out[out_locs[, .(lat_lon, grid_ID_cell_5, grid_ID_cell_10, grid_ID_cell_1
 if(overwrite == T){
   fwrite(out, here('Results/VIIRS/vocal_activity_annotated.csv'))
 }
-
-
-
-# Convert to data.table
-# pt_in_poly <- as.data.table(pt_in_poly)
-# pt_in_poly$geometry <- NULL
-# # Count detectors
-# pt_in_poly <- pt_in_poly[, .N, by = grid_ID][, .(grid_ID, detectors = N)]
-# 
-# global_sf <- merge(global_sf, pt_in_poly, by = 'grid_ID', all.x = T)
-# plot(global_sf[2])
-# # percent of cells with detectors
-# length(which(!is.na(global_sf$detectors))) / nrow(global_sf)
-# # how many detectors in a single cell
-# max(global_sf$detectors, na.rm = T)
-# length(which(global_sf$detectors == 1))
