@@ -3,20 +3,20 @@ library(here)
 library(janitor)
 library(glmmTMB)
 
-# AvoNET trat database
-setwd(here::here("data"))
-avo <- readr::read_csv("AVONET1_BirdLife.csv")
-
 # key for joining up birdweather, EltonTraits, etc.
-setwd(here::here("data"))
+setwd(here::here("data/species_keys"))
 key <- readr::read_csv("birdweather_elton_botw_name_key.csv")
 
+# AvoNET trat database
+setwd(here::here("data/traits"))
+avo <- readr::read_csv("avonet.csv")
+
 # table indicating whether each species nests in cavities/burrows (1) or not (0)
-cavity <- readr::read_csv("cavity_nesting_reduced.csv") |> 
+cavity <- readr::read_csv("cavity.csv") |> 
   dplyr::rename(sci_name = sci_name_bw)
 
 # EltonTraits database
-elton <- read.delim("bird_elton_trait.txt") |> 
+elton <- read.delim("elton.txt") |> 
   janitor::clean_names() |> 
   dplyr::select( family = bl_family_latin, 
                  sci_name_elton = scientific,
@@ -34,6 +34,7 @@ elton <- read.delim("bird_elton_trait.txt") |>
                 starts_with("for_strat")) |> 
   dplyr::distinct()
 
+setwd(here::here("data/vocalization_activity"))
 # filtered and processed birdweather data
 load("cessation_data_conf_0.75_det_100_grid_10.RData") # cessation of evening vocalization
 load("onset_data_conf_0.75_det_100_grid_10.RData")     # onset of vocalization in the morning

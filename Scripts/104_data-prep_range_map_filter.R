@@ -2,9 +2,7 @@ library(here)
 library(tidyverse)
 library(sf)
 
-setwd(here::here("data"))
-
-key <- readr::read_csv("birdweather_elton_botw_name_key.csv")
+key <- readr::read_csv(here::here("data/species_keys/birdweather_elton_botw_name_key.csv"))
 
 botw_species <- key |> 
   dplyr::filter(nocturnal == 0) |> 
@@ -12,6 +10,7 @@ botw_species <- key |>
   dplyr::distinct() |> 
   dplyr::pull(sci_name_botw)
 
+setwd(here::here("data"))
 d <- readr::read_csv("vocal_activity_annotated_conf_0_det_10.csv")
 
 # clunky huge data file...
@@ -22,6 +21,7 @@ d <- readr::read_csv("vocal_activity_annotated_conf_0_det_10.csv")
 #   dplyr::select(sisid, sci_name, geometry = Shape)
 
 # read in reduced map file
+# cannot share on GitHub because file is too big, but these maps can be requested from BirdLife International
 map_focal <- sf::st_read("focal_spp_maps.shp")
 
 noct <- key |> 
@@ -91,6 +91,7 @@ updated_combos <- bind_rows(res) |>
   tibble::add_column( in_range = "yes" )
 
 # save for convenience
+setwd(here::here("data"))
 save(
   combos, 
   updated_combos,
@@ -105,6 +106,7 @@ combos_error <- combos |>
   dplyr::filter(sci_name_botw %in% error_groups)
 
 # I saved this info and then restarted the session to free up memory
+setwd(here::here("data"))
 save(
   map_focal_error,
   combos_error,
@@ -153,9 +155,8 @@ for( i in 1:length(error_groups)){
   
 }
 
-setwd(here::here("data/error_species_maps"))
 # 8 species to do manual/custom range filtering
-error_notes <- readr::read_csv("error_species.csv") 
+error_notes <- readr::read_csv(here::here("data/species_keys/error_species.csv")) 
 
 manual_good <- error_notes |> 
   dplyr::filter(good == "yes") |> 
@@ -166,6 +167,7 @@ manual_bad <- error_notes |>
   dplyr::pull(sci_name_botw)
 
 # If restarting to save memory...
+setwd(here::here("data"))
 load("range_map_filtering.RData")
 
 # 9 species that we have to manually filter out bad records

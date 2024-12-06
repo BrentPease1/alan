@@ -1,7 +1,7 @@
 library(here)
 library(tidyverse)
 
-setwd(here::here("data"))
+setwd(here::here("data/vocalization_activity"))
 
 load("onset_data_conf_0.75_det_100_grid_10.RData")
 
@@ -25,7 +25,7 @@ ggplot(d, aes(x = alan)) +
 
 setwd(here::here("figures"))
 ggsave(
-  filename = "alan_histogram.png",
+  filename = "figure_01b_inset.png",
   width = 1.75, 
   height = 1, 
   units = "in", 

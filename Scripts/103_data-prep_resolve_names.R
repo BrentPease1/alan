@@ -9,8 +9,10 @@ d <- readr::read_csv( "vocal_activity_annotated_conf_0_det_10.csv" ) |>
   dplyr::mutate( sci_name = ifelse(sci_name == "Falcipennis canadensis", "Canachites canadensis", sci_name),
                  sci_name = ifelse(sci_name == "Glossopsitta porphyrocephala", "Parvipsitta porphyrocephala", sci_name))
 
+setwd(here::here("data/traits"))
+
 # elton traits database
-trait <- read.delim("bird_elton_trait.txt") |> 
+trait <- read.delim("elton.txt") |> 
   dplyr::select(sci_name = Scientific, 
                 english = English, 
                 nocturnal = Nocturnal)
@@ -58,6 +60,7 @@ temp <- taxize::synonyms_df( syn_list ) |>
   dplyr::distinct() 
 
 # stash the synonyms
+setwd(here::here("data/species_keys"))
 write_csv(temp, "taxize_scientific_synonyms.csv")
 
 # get an extra 170 species with the itis synonyms
@@ -92,11 +95,9 @@ trait_dat_more_more <- trait_dat_more |>
   dplyr::full_join(elton_common_name_join) |> 
   dplyr::select(com_name, sci_name_bw, sci_name_elton, nocturnal) 
 
-# 48 species to manually review
-# anti_join(spp, trait_dat_more_more) |> 
-#   write_csv("review_species3.csv")
-
-manual_review <- readr::read_csv("review_species3.csv")
+# 50 or so species manually reviwed to get names
+setwd(here::here("data/species_keys"))
+manual_review <- readr::read_csv("review_species.csv")
 
 man_review_traits <- manual_review |> 
   dplyr::select(com_name, sci_name = sci_name_manual) |> 
@@ -114,7 +115,7 @@ final_trait <- trait_dat_more_more |>
   dplyr::filter(!is.na(sci_name_bw))
 
 # scientific names for range maps
-bow_species <- readr::read_csv("botw_scientific_names.csv") |> 
+bow_species <- readr::read_csv(here::here("data/species_keys/botw_scientific_names.csv")) |> 
   dplyr::select(sci_name = scientific) |> 
   tibble::add_column(flag = 0)
 
@@ -146,7 +147,7 @@ bow_trait2 <- final_trait |>
 #   dplyr::arrange(com_name) |> 
 #   write_csv("review_sp_botw.csv")
 
-botw_review <- readr::read_csv("review_sp_botw.csv") |> 
+botw_review <- readr::read_csv(here::here("data/species_keys/review_sp_botw.csv")) |> 
   dplyr::select(-flag, -nocturnal)
 
 name_key <- dplyr::full_join(bow_trait1, bow_trait2) |> 
@@ -155,4 +156,5 @@ name_key <- dplyr::full_join(bow_trait1, bow_trait2) |>
   dplyr::filter(!is.na(com_name)) |> 
   dplyr::left_join(final_trait)
 
+setwd(here::here("data/species_keys"))
 readr::write_csv(name_key, "birdweather_elton_botw_name_key.csv")

@@ -4,14 +4,13 @@
 library(here)
 library(tidyverse)
 
-setwd(here::here("data"))
-
-key <- readr::read_csv("birdweather_elton_botw_name_key.csv") 
+key <- readr::read_csv(here::here("data/species_keys/birdweather_elton_botw_name_key.csv")) 
 
 noct <- key |> 
   dplyr::select(sci_name = sci_name_bw, nocturnal) |> 
   dplyr::distinct()
 
+setwd(here::here("data"))
 d <- readr::read_csv("vocal_activity_annotated_conf_0.75_det_100.csv") |> 
   dplyr::mutate(
     sci_name = ifelse(sci_name == "Falcipennis canadensis", "Canachites canadensis", sci_name),
