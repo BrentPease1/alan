@@ -39,7 +39,11 @@ ________________________________________________________________________________
      | sci_name_elton | Scientific name according to EltonTraits database |
      | sci_name_botw | Scientific name according to BirdLife International |
      | nocturnal | Indicator variable for whether species is nocturnal (1) or not (0) |
-     | cavity | Indicator variable for whether species nests in cavities (1) or not (0) |    
+     | cavity | Indicator variable for whether species nests in cavities (1) or not (0) |
+  * [botw_scientific_names.csv](./data/species_keys/botw_scientific_names.csv)
+    | Variable name | Meaning |
+    |---------------|---------|
+    | scientific | Scientific name according to BirdLife International | 
 * [ELEData](./data/ELEData) Contains [AVONET](https://figshare.com/s/b990722d72a26b5bfead) and [EltonTraits 1.0](https://figshare.com/collections/EltonTraits_1_0_Species-level_foraging_attributes_of_the_world_s_birds_and_mammals/3306933/1) datasets. Also contains output from scripts for dealing with taxonomy differences and cavity nesting. 
  
 * [vocalization_activity](./data/vocalization_activity) Contains output from [101_data-prep_calculate_vocal_activity.R](./Scripts/101_data-prep_calculate_vocal_activity.R). These files are the response variables in primary analyses.
