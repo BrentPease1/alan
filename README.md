@@ -59,6 +59,17 @@ ________________________________________________________________________________
       | flag | variable used to identify taxa to manually resolve |
       | sci_name_botw | BirdLife scientific name (manually resolved |
       | nocturnal | Binary variable indicating whether species is nocturnal (1) or not (0) |
+    * [review_species.csv](.data/species_keys/review_species.csv)
+      | Variable | Meaning |
+      |----------|---------|
+      | com_name | Common name |
+      | sci_name | BirdWeather scientific name |
+      | sci_name_manual | Scientific name (for matching to EltonTraits), had to resolve these manually |
+    * [taxize_scientific_synonyms.csv](./data/taxize_scientific_synonyms.csv)
+      | Variable | Meaning |
+      | ---------| --------|
+      | sci_name | BirdWeather scientific name |
+      | sci_name_syn | Synonym found using taxize R package | 
 
 * [ELEData](./data/ELEData) Contains [AVONET](https://figshare.com/s/b990722d72a26b5bfead) and [EltonTraits 1.0](https://figshare.com/collections/EltonTraits_1_0_Species-level_foraging_attributes_of_the_world_s_birds_and_mammals/3306933/1) datasets. Also contains output from scripts for dealing with taxonomy differences and cavity nesting. 
  
