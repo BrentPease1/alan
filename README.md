@@ -37,3 +37,5 @@ ________________________________________________________________________________
 * [BirdWeather](./Results/Birdweather) Contains raw output from [101_data-prep_calculate_vocal_activity.R](./Scripts/101_data-prep_calculate_vocal_activity.R)
 * [Figures](./Results/Figures) Stores output from all figure scripts.
 * [VIIRS](./Results/VIIRS) Stores output from [102_data-prep_extract_viirs.R](./Scripts/102_data-prep_extract_viirs.R)
+* tmb_evening_models_family.RData. Model outputs for the cessation models. **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1wBKt16Fy2mLdSVHeb0S2pl376LBOiGBE/view?usp=sharing). Download the file and put it in the [Results](./Results) directory to reproduce figures.
+* tmb_onset_models_family.RData. Mode outputs for onset models. **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1jx0pyFHKJa1PFT70AGrWoiP7h4j-lVop/view?usp=sharing). Download the file and put it in the [Results](./Results) directory to reproduce figures.
