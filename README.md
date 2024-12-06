@@ -51,14 +51,14 @@ ________________________________________________________________________________
      | good | Are the detection locations all good ("good") or are there out-of-range detections that need to be omitted ("no") |
      | notes | Instructions for manually reviewing/filtering bad records |
     * [review_sp_botw.csv](./data/species_keys/review_sp_botw.csv) Worksheet used to manually resolve some scientific names for BirdLife
-     | Variable | Meaning|
-     |---------|--------|
-     | com_name | Common name |
-     | sci_name_bw | BirdWeather scientific name |
-     | sci_name_elton | EltonTraits scientific name |
-     | flag | variable used to identify taxa to manually resolve |
-     | sci_name_botw | BirdLife scientific name (manually resolved |
-     | nocturnal | Binary variable indicating whether species is nocturnal (1) or not (0) |
+      | Variable | Meaning |
+      |----------|--------|
+      | com_name | Common name |
+      | sci_name_bw | BirdWeather scientific name |
+      | sci_name_elton | EltonTraits scientific name |
+      | flag | variable used to identify taxa to manually resolve |
+      | sci_name_botw | BirdLife scientific name (manually resolved |
+      | nocturnal | Binary variable indicating whether species is nocturnal (1) or not (0) |
 
 * [ELEData](./data/ELEData) Contains [AVONET](https://figshare.com/s/b990722d72a26b5bfead) and [EltonTraits 1.0](https://figshare.com/collections/EltonTraits_1_0_Species-level_foraging_attributes_of_the_world_s_birds_and_mammals/3306933/1) datasets. Also contains output from scripts for dealing with taxonomy differences and cavity nesting. 
  
