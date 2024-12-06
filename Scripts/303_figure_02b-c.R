@@ -43,13 +43,11 @@ ggplot( data = m1_df,
     plot.background = element_rect(fill = "white", color = NA),
     panel.background = element_rect(fill = "white", color = NA),
     strip.text = element_text(color = "black", size = 10), 
-    # legend.title = element_text(color = "black", size = 11),
-    # legend.text = element_text(color = "black", size = 10),
     axis.title = element_text(color = "black", size = 9),
     axis.text = element_text(color = "black", size = 8),
     axis.line = element_line(color = "black", linewidth = 0.3))
 
-setwd(here::here("figures"))
+setwd(here::here("Results/Figures"))
 ggsave(
   filename = "figure_02b.png", 
   width = 2.5, 
@@ -73,13 +71,11 @@ e1_df |>
     plot.background = element_rect(fill = "white", color = NA),
     panel.background = element_rect(fill = "white", color = NA),
     strip.text = element_text(color = "black", size = 10), 
-    # legend.title = element_text(color = "black", size = 11),
-    # legend.text = element_text(color = "black", size = 10),
     axis.title = element_text(color = "black", size = 9),
     axis.text = element_text(color = "black", size = 8),
     axis.line = element_line(color = "black", linewidth = 0.3))
 
-setwd(here::here("figures"))
+setwd(here::here("Results/Figures"))
 ggsave(
   filename = "figure_02c.png", 
   width = 2.5, 
