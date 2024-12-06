@@ -110,7 +110,7 @@ ggplot() +
         legend.frame = element_rect(color = "black", linewidth = 0.2),
         plot.background = element_rect(color = NA, fill = "white"))
 
-setwd(here::here("figures"))
+setwd(here::here("Results/Figures"))
 ggsave(
   filename = "figure_03b.png", 
   width = 3, 

@@ -124,7 +124,7 @@ dplyr::full_join(slopes, slopes_e) |>
   guides(color = guide_legend(nrow = 2),
          fill = guide_legend(nrow = 2))
 
-setwd(here::here("figures"))
+setwd(here::here("Results/Figures"))
 ggsave(
   filename = "figure_03a.png", 
   width = 1.5,

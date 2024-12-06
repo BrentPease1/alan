@@ -15,13 +15,10 @@ phy <- BirdTree_trees[[1]]
 tax <- BirdTree_tax |> 
   tibble::as_tibble()
 
-setwd(here::here("data"))
+key <- readr::read_csv(here::here("data/species_keys/birdweather_elton_botw_name_key.csv"))
 
-key <- readr::read_csv("birdweather_elton_botw_name_key.csv")
-
-load("onset_data_conf_0.75_det_100_grid_10.RData")
-load("median_data_conf_0.75_det_100.RData")
-load("cessation_data_conf_0.75_det_100_grid_10.RData")
+load(here::here("data/vocalization_activity/onset_data_conf_0.75_det_100_grid_10.RData"))
+load(here::here("data/vocalization_activity/cessation_data_conf_0.75_det_100_grid_10.RData"))
 
 species <- final |> 
   dplyr::ungroup() |> 
@@ -31,12 +28,7 @@ species <- final |>
     final_cess |> 
       dplyr::ungroup() |> 
       dplyr::select(sci_name) |> 
-      dplyr::distinct()) |> 
-  dplyr::full_join(
-    final_med |> 
-      dplyr::ungroup() |> 
-      dplyr::select(sci_name) |> 
-      dplyr::distinct()) |> 
+      dplyr::distinct()) |>  
   dplyr::rename(sci_name_bw = sci_name) |> 
   dplyr::left_join(key) 
 
@@ -95,6 +87,7 @@ cowplot::ggdraw() +
   draw_plot( p2 ) +
   draw_plot( leg, 0.08, 0.65, 0.4, 0.4)
 
+setwd(here::here("Results/Figures"))
 ggsave(
   filename = "figure_04a.png", 
   width = 4.25, 

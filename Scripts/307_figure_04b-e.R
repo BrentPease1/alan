@@ -4,7 +4,7 @@ library(MetBrewer)
 library(effects)
 library(patchwork)
 
-setwd(here::here("results"))
+setwd(here::here("Results"))
 
 load("tmb_onset_models_family.RData")
 load("tmb_evening_models_family.RData")
@@ -287,7 +287,7 @@ gr_all <- as.data.frame(m5_me) |>
 
 range_plot / cavity_plot / ground_plot / lat_plot
 
-setwd(here::here("figures"))
+setwd(here::here("Results/Figures"))
 ggsave(
   filename = "figure_04b-e.png", 
   width = 3,
