@@ -51,7 +51,7 @@ ggplot( data = m1_df,
 
 setwd(here::here("figures"))
 ggsave(
-  filename = "figure_2_morning.png", 
+  filename = "figure_2b.png", 
   width = 2.5, 
   height = 2, 
   units = "in", 
@@ -81,7 +81,7 @@ e1_df |>
 
 setwd(here::here("figures"))
 ggsave(
-  filename = "figure_2_evening.png", 
+  filename = "figure_2c.png", 
   width = 2.5, 
   height = 2, 
   units = "in", 
