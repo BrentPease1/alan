@@ -29,8 +29,11 @@ ________________________________________________________________________________
 * [307_figure_04b-e.R](./Scripts/307_figure_04b-e.R). Script for creating Fig. 4b-e
 
 ### Data
+* [error_species_maps](./data/error_species_maps) Folder containing output from [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R) for manual review.
+* [species_keys](./data/species_keys) Folder containing several tables with name keys to join datasets
+   * [birdweather_elton_botw_name_key.csv)(./data/species/keys/birdweather_elton_botw_name_key.csv)    
 * [ELEData](./data/ELEData) Contains [AVONET](https://figshare.com/s/b990722d72a26b5bfead) and [EltonTraits 1.0](https://figshare.com/collections/EltonTraits_1_0_Species-level_foraging_attributes_of_the_world_s_birds_and_mammals/3306933/1) datasets. Also contains output from scripts for dealing with taxonomy differences and cavity nesting. 
-* [error_species_maps](./data/error_species_maps) Output from [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R) for manual review. 
+ 
 * [vocalization_activity](./data/vocalization_activity) Contains output from [101_data-prep_calculate_vocal_activity.R](./Scripts/101_data-prep_calculate_vocal_activity.R). These files are the response variables in primary analyses.
 
 ### Results
