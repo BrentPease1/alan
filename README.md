@@ -31,7 +31,15 @@ ________________________________________________________________________________
 ### Data
 * [error_species_maps](./data/error_species_maps) Folder containing output from [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R) for manual review.
 * [species_keys](./data/species_keys) Folder containing several tables with name keys to join datasets
-   * [birdweather_elton_botw_name_key.csv](./data/species_keys/birdweather_elton_botw_name_key.csv)    
+   * [birdweather_elton_botw_name_key.csv](./data/species_keys/birdweather_elton_botw_name_key.csv) Table containing key to connect birdweather, elton traits, and BirdLife international names
+     | Variable name | Meaning |
+     |---------------|---------|
+     | com_name | Common name |
+     | sci_name_bw | Scientific name according to BirdWeather |
+     | sci_name_elton | Scientific name according to EltonTraits database |
+     | sci_name_botw | Scientific name according to BirdLife International |
+     | nocturnal | Indicator variable for whether species is nocturnal (1) or not (0) |
+     | cavity | Indicator variable for whether species nests in cavities (1) or not (0) |    
 * [ELEData](./data/ELEData) Contains [AVONET](https://figshare.com/s/b990722d72a26b5bfead) and [EltonTraits 1.0](https://figshare.com/collections/EltonTraits_1_0_Species-level_foraging_attributes_of_the_world_s_birds_and_mammals/3306933/1) datasets. Also contains output from scripts for dealing with taxonomy differences and cavity nesting. 
  
 * [vocalization_activity](./data/vocalization_activity) Contains output from [101_data-prep_calculate_vocal_activity.R](./Scripts/101_data-prep_calculate_vocal_activity.R). These files are the response variables in primary analyses.
