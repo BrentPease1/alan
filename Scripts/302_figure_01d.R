@@ -6,20 +6,20 @@ holder <- readr::read_csv(here::here("Results/Birdweather/row_counter/birdweathe
 
 setwd(here::here("data"))
 
-key <- readr::read_csv("birdweather_elton_botw_name_key.csv") 
+key <- readr::read_csv( here::here("data/species_keys/birdweather_elton_botw_name_key.csv")) 
 
 noct <- key |> 
   dplyr::select(sci_name = sci_name_bw, nocturnal) |> 
   dplyr::distinct()
 
-d <- readr::read_csv("vocal_activity_annotated_conf_0.75_det_100.csv") |> 
+d <- readr::read_csv(here::here("data/vocal_activity_annotated_conf_0.75_det_100.csv")) |> 
   dplyr::mutate(
     sci_name = ifelse(sci_name == "Falcipennis canadensis", "Canachites canadensis", sci_name),
     sci_name = ifelse(sci_name == "Glossopsitta porphyrocephala", "Parvipsitta porphyrocephala", sci_name),
     sci_name = ifelse(grepl("Fox Sparrow", com_name), "Passerella iliaca", sci_name),
     com_name = ifelse(grepl("Fox Sparrow", com_name), "Fox Sparrow", com_name))
 
-valid_combos <- readr::read_csv("species_site_combinations_final.csv")
+valid_combos <- readr::read_csv(here::here("data/species_site_combinations_final.csv"))
 
 combos <- valid_combos |> 
   dplyr::select(lat, lon, sci_name = sci_name_bw) |> 
@@ -97,9 +97,9 @@ final <- holder |>
       panel.background = element_rect(color = NA, fill = "white"),
       plot.background = element_rect(color = NA, fill = "white"))
     
-setwd(here::here("figures"))
+setwd(here::here("Results/Figures"))
 ggsave(
-  filename = "sample_size_barplot.png", 
+  filename = "figure_01d.png", 
   width = 2.2, 
   height = 1.75, 
   units = "in", 

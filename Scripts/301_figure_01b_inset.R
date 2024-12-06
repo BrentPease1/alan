@@ -23,7 +23,7 @@ ggplot(d, aes(x = alan)) +
          axis.text = element_text(color = "white", size = 7),
          axis.title = element_text(color = "white", size = 8))
 
-setwd(here::here("figures"))
+setwd(here::here("Results/Figures"))
 ggsave(
   filename = "figure_01b_inset.png",
   width = 1.75, 
