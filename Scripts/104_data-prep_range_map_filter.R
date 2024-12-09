@@ -10,8 +10,7 @@ botw_species <- key |>
   dplyr::distinct() |> 
   dplyr::pull(sci_name_botw)
 
-setwd(here::here("data"))
-d <- readr::read_csv("vocal_activity_annotated_conf_0_det_10.csv")
+d <- readr::read_csv(here::here("data/vocalization_activity/vocal_activity_annotated_conf_0_det_10.csv"))
 
 # clunky huge data file...
 # maps <- sf::st_read("BOTW.gdb", layer = "All_Species")
@@ -22,7 +21,7 @@ d <- readr::read_csv("vocal_activity_annotated_conf_0_det_10.csv")
 
 # read in reduced map file
 # cannot share on GitHub because file is too big, but these maps can be requested from BirdLife International
-map_focal <- sf::st_read("focal_spp_maps.shp")
+map_focal <- sf::st_read( here::here("data/range_maps/focal_spp_maps.shp"))
 
 noct <- key |> 
   dplyr::select(com_name, sci_name = sci_name_bw, nocturnal) |> 
@@ -90,14 +89,14 @@ updated_combos <- bind_rows(res) |>
   sf::st_drop_geometry() |> 
   tibble::add_column( in_range = "yes" )
 
-# save for convenience
-setwd(here::here("data"))
-save(
-  combos, 
-  updated_combos,
-  error_groups,
-  file = "range_map_filtering.RData"
-)
+# save for convenience (optional)
+# setwd(here::here("data"))
+# save(
+#   combos, 
+#   updated_combos,
+#   error_groups,
+#   file = "range_map_filtering.RData"
+# )
 
 map_focal_error <- map_focal |> 
   dplyr::filter(sci_name %in% error_groups)
@@ -106,15 +105,15 @@ combos_error <- combos |>
   dplyr::filter(sci_name_botw %in% error_groups)
 
 # I saved this info and then restarted the session to free up memory
-setwd(here::here("data"))
-save(
-  map_focal_error,
-  combos_error,
-  error_groups,
-  file = "inspect_error_species.RData"
-)
-
-load("inspect_error_species.RData")
+# setwd(here::here("data"))
+# save(
+#   map_focal_error,
+#   combos_error,
+#   error_groups,
+#   file = "inspect_error_species.RData"
+# )
+# 
+# load("inspect_error_species.RData")
 
 # save error species to CSV for taking notes on maps
 # tibble(sci_name_botw = error_groups, notes = NA) |>
@@ -167,8 +166,8 @@ manual_bad <- error_notes |>
   dplyr::pull(sci_name_botw)
 
 # If restarting to save memory...
-setwd(here::here("data"))
-load("range_map_filtering.RData")
+# setwd(here::here("data"))
+# load("range_map_filtering.RData")
 
 # 9 species that we have to manually filter out bad records
 bad <- combos |> 
@@ -199,5 +198,5 @@ final_combos <- combos |>
   dplyr::select(-in_range)
 
 # final product: valid species x site combinations
-setwd(here::here("data"))
+setwd(here::here("data/vocalization_activity"))
 write_csv(final_combos, "species_site_combinations_final.csv")
