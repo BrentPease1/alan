@@ -137,6 +137,8 @@ ________________________________________________________________________________
 
 ### Results
 * [BirdWeather](./Results/Birdweather) Contains raw output from [101_data-prep_calculate_vocal_activity.R](./Scripts/101_data-prep_calculate_vocal_activity.R)
+  * [activity_measures_nov2023.csv](./Results/Birdweather/activity_measures_nov2023.csv). **PLACEHOLDER** can we delete this?
+  * [birdweather_row_counter.csv](./Results/Birdweather/birdweather_row_counter.csv) Information on number of detections used to create barplot in Fig. 1.    
 * [Figures](./Results/Figures) Stores output from all figure scripts.
 * [VIIRS](./Results/VIIRS) Stores output from [102_data-prep_extract_viirs.R](./Scripts/102_data-prep_extract_viirs.R)
 * <ins>tmb_evening_models_family.RData</ins>. Model outputs for the cessation models. **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1wBKt16Fy2mLdSVHeb0S2pl376LBOiGBE/view?usp=sharing). Download the file and put it in the [Results](./Results) directory to reproduce figures.
