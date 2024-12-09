@@ -95,6 +95,15 @@ ________________________________________________________________________________
     | avg_rad | Measure of light pollution; radiance from VIIRS data product from sensor coordinates |
     | group | Grouping by species, spatial grid cell, and week (we re-created groupings for analysis the modeling script |      
   * [onset_data_conf_0.75_det_100_grid_10.RData](./data/vocalization_activity/onset_data_conf_0.75_det_100_grid_10.RData). Final data formatted for modeling (morning onset). The RData object contains one table, "final", which has the same column meanings as the cessation data (see table above). The one difference is that the `value` variable is the time of the first vocalization relative to local sunrise, with negative values representing onset prior to sunrise and positive values representing onset after sunrise.
+  * [species_site_combinations_final.csv](./data/vocalization_activity/species_site_combinations_final.csv). Table with valid (based on species range maps) species-site combinations; output of [104_data-prep_range_map_filter.R](./Scripts/104-data-prep_range_map_filter.R]. The table has the following column meanings:
+    | Variable | Meaning |
+    |----------|---------|
+    | site | Sensor ID |
+    | lat | Latitude (EPSG code: 4326) of sensor location |
+    | lon | Longitude (EPSG code: 4326) of sensor location |
+    | com_name | BirdWeather common name |
+    | sci_name_bw | BirdWeather scientific name |
+    | sci_name_botw | BirdLife scientific name |
   * <ins>vocal_activity_annotated_conf_0_det10.csv</ins>. Observed vocalization timing response variables with least conservative filtering (confidence >=0 with >=10 detections for a species per station-date). **NOTE:** this file is too large to share on GitHub (~2GB, 12.9 million rows). It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1jFnviuHFIiTEZnk-knrscRLgfCQt7mam/view?usp=sharing). Download this file and put it in the [data/vocalization_activity](./data/vocalization_activity) folder to run data preparation scripts [103_data-prep_resolve_names.R](./Scripts/103_data-prep_resolve_names.R) and [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R).
     | Variable | Meaning |
     |----------|---------|
