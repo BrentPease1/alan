@@ -33,7 +33,7 @@ ________________________________________________________________________________
 * [range_maps](./data/range_maps) Folder containing range map files for focal species. Range maps come from BirdLife International; the full dataset can be requested at the [BirdLife Data Zone](https://datazone.birdlife.org/species/requestdis).
   * [focal_spp_maps.dbf](./data/range_maps/focal_spp_maps.dbf)
   * [focal_spp_maps.prj](./data/range_maps/focal_spp_maps.prj)
-  * <ins>focal_spp_maps.shp</ins>. **NOTE** the shapefile is too large to share on GitHub; download available #Placeholder.
+  * <ins>focal_spp_maps.shp</ins>. **NOTE** the shapefile is too large to share on GitHub; download available **PLACEHOLDER**.
   * [focal_spp_maps.shx](./data/range_maps/focal_spp_maps.shx)  
 * [species_keys](./data/species_keys) Folder containing several tables with name keys to join datasets
    * [birdweather_elton_botw_name_key.csv](./data/species_keys/birdweather_elton_botw_name_key.csv) Table containing key to connect BirdWeather, EltonTraits, and BirdLife International names
