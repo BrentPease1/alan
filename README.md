@@ -81,7 +81,31 @@ ________________________________________________________________________________
     | cavity | Binary variable indicating whether species nests in cavities (1) or not (0) |
   * [elton.txt](./data/traits/elton.txt) This table comes from [EltonTraits 1.0](https://figshare.com/collections/EltonTraits_1_0_Species-level_foraging_attributes_of_the_world_s_birds_and_mammals/3306933/1). It contains many columns; the relevant ones used in our analyses are taxonomic family `BLFamilyLatin`, proportion ground foraging `ForStrat.ground`, and whether or not species is nocturnal `Nocturnal`.  
 * [vocalization_activity](./data/vocalization_activity) Contains output from [101_data-prep_calculate_vocal_activity.R](./Scripts/101_data-prep_calculate_vocal_activity.R). These files are the response variables in primary analyses.
-  * vocal_activity_annotated_conf_0_det10.csv. Birdweather detections with least conservative filtering (confidence >=0 with >=10 detections for a species per station-date). **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1jFnviuHFIiTEZnk-knrscRLgfCQt7mam/view?usp=sharing). Download this file and put it in the [data/vocalization_activity](./data/vocalization_activity) folder to run data preparation scripts [103_data-prep_resolve_names.R](./Scripts/103_data-prep_resolve_names.R) and [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R).  
+  * vocal_activity_annotated_conf_0_det10.csv. Observed vocalization timing response variables with least conservative filtering (confidence >=0 with >=10 detections for a species per station-date). **NOTE:** this file is too large to share on GitHub (~2GB, 12.9 million rows). It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1jFnviuHFIiTEZnk-knrscRLgfCQt7mam/view?usp=sharing). Download this file and put it in the [data/vocalization_activity](./data/vocalization_activity) folder to run data preparation scripts [103_data-prep_resolve_names.R](./Scripts/103_data-prep_resolve_names.R) and [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R).
+    | Variable | Meaning |
+    |----------|---------|
+    | lat_lon | Latitude-longitude grouping (unique location ID) |
+    | value   | Observed time of vocalization (minutes) relative to local sunrise (morning response variables) or sunset (cessation response variable) |
+    | category | Which response variable: morning onset ("first_onset"), evening cessation ("ev_ces"), or morning median vocalization time ("median_dawn"); this latter variable was not used or included in analyses |
+    | com_name | Species common name according to BirdWeather |
+    | sci_name | Species scientific name according to BirdWeather |
+    | date_time | date-time stamp of detection |
+    | date | date of detection |
+    | week | Week of the year |
+    | lat | Latitude of station (EPSG code: 4326) |
+    | lon | Longitude of station (EPSG code: 4326) |
+    | conf_filter | Detection confidence filter used to calculate response variables. In this table, all values will be equal to 0. |
+    | det_filter | How many species detections have to occur per station-date to be included. In this table, all values will be equal to 10. |
+    | avg_rad | Average radiance for coordinates for the month of the detection |
+    | rad_cat | Radiance category for coordinates (low, medium, high) |
+    | grid_ID_cell_5 | Spatial grid cell ID (5°) for the sensor location |
+    | grid_ID_cell_10 | Spatial grid cell ID (10°) for the sensor location (we did not use this in analyses) |
+    | grid_ID_cell_15 | Spatial grid cell ID (15°) for the sensor location (we did not use this in analyses) |
+    | month | Month of the year |
+    | day | Day of the year |
+    | year| Year | 
+    
+
 
 ### Results
 * [BirdWeather](./Results/Birdweather) Contains raw output from [101_data-prep_calculate_vocal_activity.R](./Scripts/101_data-prep_calculate_vocal_activity.R)
