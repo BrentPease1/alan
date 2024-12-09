@@ -65,7 +65,7 @@ ________________________________________________________________________________
       | com_name | Common name |
       | sci_name | BirdWeather scientific name |
       | sci_name_manual | Scientific name (for matching to EltonTraits), had to resolve these manually |
-    * [taxize_scientific_synonyms.csv](./data/taxize_scientific_synonyms.csv)
+    * [taxize_scientific_synonyms.csv](./data/species_keys/taxize_scientific_synonyms.csv)
       | Variable | Meaning |
       | ---------| --------|
       | sci_name | BirdWeather scientific name |
