@@ -29,7 +29,7 @@ ________________________________________________________________________________
 * [307_figure_04b-e.R](./Scripts/307_figure_04b-e.R). Script for creating Fig. 4b-e
 
 ### Data
-* [error_species_maps](./data/error_species_maps) Folder containing output from [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R) for manual review.
+* [error_species_maps](./data/error_species_maps) Folder containing output (PDFs with species range maps with BirdWeather detections overlaid) from [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R) for manual review.
 * [species_keys](./data/species_keys) Folder containing several tables with name keys to join datasets
    * [birdweather_elton_botw_name_key.csv](./data/species_keys/birdweather_elton_botw_name_key.csv) Table containing key to connect birdweather, elton traits, and BirdLife international names
      | Variable name | Meaning |
@@ -80,7 +80,20 @@ ________________________________________________________________________________
     | sci_name_bw | Scientific name (BirdWeather) |
     | cavity | Binary variable indicating whether species nests in cavities (1) or not (0) |
   * [elton.txt](./data/traits/elton.txt) This table comes from [EltonTraits 1.0](https://figshare.com/collections/EltonTraits_1_0_Species-level_foraging_attributes_of_the_world_s_birds_and_mammals/3306933/1). It contains many columns; the relevant ones used in our analyses are taxonomic family `BLFamilyLatin`, proportion ground foraging `ForStrat.ground`, and whether or not species is nocturnal `Nocturnal`.  
-* [vocalization_activity](./data/vocalization_activity) Contains output from [101_data-prep_calculate_vocal_activity.R](./Scripts/101_data-prep_calculate_vocal_activity.R). These files are the response variables in primary analyses.
+* [vocalization_activity](./data/vocalization_activity) Vocalization data. Contains output from [101_data-prep_calculate_vocal_activity.R](./Scripts/101_data-prep_calculate_vocal_activity.R), [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R), and [105_data-prep_final_formatting.R](./Scripts/105_data-prep_final_formatting.R).
+  * [cessation_data_conf_0.75_det_100_grid_10.RData](./data/vocalization_activity/cessation_data_conf_0.75_det_100_grid_10.RData). Final data formatted for modeling (evening cessation). The RData object contains one table, "final_cess", with the following columns.
+    | Variable | Meaning |
+    |----------|---------|
+    | lat | Latitude (EPSG code: 4326) of sensor location |
+    | lon | Longitude (EPSG code: 4326) of sensor location |
+    | grid_ID_cell_5 | Spatial grid cell ID (5°) for the sensor location |
+    | grid_ID_cell_10 | Spatial grid cell ID (10°) for the sensor location (we did not use this in analyses) |
+    | grid_ID_cell_15 | Spatial grid cell ID (15°) for the sensor location (we did not use this in analyses) |
+    | week | Week of the year |
+    | sci_name | BirdWeather scientific name |
+    | value | Observed cessation of vocal activity in evening (minutes relative to local sunset); negative values represent final detection for the date occuring before sunset, while positive values represent final detection for the date occuring after sunset |
+    | avg_rad | Measure of light pollution; radiance from VIIRS data product from sensor coordinates |
+    | group | Grouping by species, spatial grid cell, and week (we re-created groupings for analysis the modeling script |      
   * <ins>vocal_activity_annotated_conf_0_det10.csv</ins>. Observed vocalization timing response variables with least conservative filtering (confidence >=0 with >=10 detections for a species per station-date). **NOTE:** this file is too large to share on GitHub (~2GB, 12.9 million rows). It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1jFnviuHFIiTEZnk-knrscRLgfCQt7mam/view?usp=sharing). Download this file and put it in the [data/vocalization_activity](./data/vocalization_activity) folder to run data preparation scripts [103_data-prep_resolve_names.R](./Scripts/103_data-prep_resolve_names.R) and [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R).
     | Variable | Meaning |
     |----------|---------|
