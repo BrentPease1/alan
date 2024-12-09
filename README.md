@@ -59,7 +59,7 @@ ________________________________________________________________________________
       | flag | variable used to identify taxa to manually resolve |
       | sci_name_botw | BirdLife scientific name (manually resolved |
       | nocturnal | Binary variable indicating whether species is nocturnal (1) or not (0) |
-    * [review_species.csv](.data/species_keys/review_species.csv)
+    * [review_species.csv](./data/species_keys/review_species.csv)
       | Variable | Meaning |
       |----------|---------|
       | com_name | Common name |
