@@ -139,7 +139,24 @@ ________________________________________________________________________________
 * [BirdWeather](./Results/Birdweather) Contains raw output from [101_data-prep_calculate_vocal_activity.R](./Scripts/101_data-prep_calculate_vocal_activity.R)
   * [activity_measures_nov2023.csv](./Results/Birdweather/activity_measures_nov2023.csv). **PLACEHOLDER** can we delete this?
   * [birdweather_row_counter.csv](./Results/Birdweather/birdweather_row_counter.csv) Information on number of detections used to create barplot in Fig. 1.    
-* [Figures](./Results/Figures) Stores output from all figure scripts.
+* [Figures](./Results/Figures) Manuscript figures.
+  * [figure_01.png](./Results/Figures/figure_01.png). Figure 1.
+  * [figure_01.pptx](./Results/Figures/figure_01.pptx). Figure 1, PowerPoint file for assembling panels.
+  * [figure_01b.png](./Results/Figures/figure_01b.png). Figure 1B; map created in QGIS.
+  * [figure_01b_inset.png](./Results/Figures/figure_01b_inset.png). Histogram of light pollution values from sensor locations; inset for Fig. 1B.
+  * [figure_01d.png](./Results/Figures/figure_01d.png). Figure 1D
+  * [figure_02.png](./Results/Figures/figure_02.png) Figure 2
+  * [figure_02.pptx](./Results/Figures/figure_02.pptx) Figure 2, PowerPoint file for assembling panels
+  * [figure_02b.png](./Results/Figures/figure_02b.png) Figure 2B
+  * [figure_02c.png](./Results/Figures/figure_02c.png) Figure 2C
+  * [figure_03.png](./Results/Figures/figure_03.png) Figure 3
+  * [figure_03.pptx](./Results/Figures/figure_03.pptx) Figure 3, PowerPoint file for assembling panels
+  * [figure_03a.png](./Results/Figures/figure_03a.png) Figure 3A
+  * [figure_03b.png](./Results/Figures/figure_03b.png) Figure 3B
+  * [figure_04.png](./Results/Figures/figure_04.png) Figure 4
+  * [figure_04.pptx](./Results/Figures/figure_04.pptx) Figure 4, PowerPoint file for assembling panels
+  * [figure_04a.png](./Results/Figures/figure_04.png) Figure 4A
+  * [figure_04b-e.png](./Results/Figures/figure_04.png) Figure 4B-E
 * [VIIRS](./Results/VIIRS) Stores output from [102_data-prep_extract_viirs.R](./Scripts/102_data-prep_extract_viirs.R)
 * <ins>tmb_evening_models_family.RData</ins>. Model outputs for the cessation models. **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1wBKt16Fy2mLdSVHeb0S2pl376LBOiGBE/view?usp=sharing). Download the file and put it in the [Results](./Results) directory to reproduce figures.
 * <ins>tmb_onset_models_family.RData</ins>. Mode outputs for onset models. **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1jx0pyFHKJa1PFT70AGrWoiP7h4j-lVop/view?usp=sharing). Download the file and put it in the [Results](./Results) directory to reproduce figures.
