@@ -2,10 +2,8 @@ library(tidyverse)
 library(here)
 library(taxize)
 
-setwd(here::here("data"))
-
 # two species with 2 scientific names in birdweather
-d <- readr::read_csv( "vocal_activity_annotated_conf_0_det_10.csv" ) |> 
+d <- readr::read_csv( here::here("data/vocalization_activity/vocal_activity_annotated_conf_0_det_10.csv" )) |> 
   dplyr::mutate( sci_name = ifelse(sci_name == "Falcipennis canadensis", "Canachites canadensis", sci_name),
                  sci_name = ifelse(sci_name == "Glossopsitta porphyrocephala", "Parvipsitta porphyrocephala", sci_name))
 
