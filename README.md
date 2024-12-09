@@ -31,7 +31,7 @@ ________________________________________________________________________________
 ### Data
 * [error_species_maps](./data/error_species_maps) Folder containing output (PDFs with species range maps with BirdWeather detections overlaid) from [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R) for manual review.
 * [species_keys](./data/species_keys) Folder containing several tables with name keys to join datasets
-   * [birdweather_elton_botw_name_key.csv](./data/species_keys/birdweather_elton_botw_name_key.csv) Table containing key to connect birdweather, elton traits, and BirdLife international names
+   * [birdweather_elton_botw_name_key.csv](./data/species_keys/birdweather_elton_botw_name_key.csv) Table containing key to connect BirdWeather, EltonTraits, and BirdLife International names
      | Variable name | Meaning |
      |---------------|---------|
      | com_name | Common name |
@@ -40,7 +40,7 @@ ________________________________________________________________________________
      | sci_name_botw | Scientific name according to BirdLife International |
      | nocturnal | Indicator variable for whether species is nocturnal (1) or not (0) |
      | cavity | Indicator variable for whether species nests in cavities (1) or not (0) |
-  * [botw_scientific_names.csv](./data/species_keys/botw_scientific_names.csv)
+  * [botw_scientific_names.csv](./data/species_keys/botw_scientific_names.csv) List of scientific names used in BirdLife International range maps.
     | Variable name | Meaning |
     |---------------|---------|
     | scientific | Scientific name according to BirdLife International |
@@ -50,7 +50,7 @@ ________________________________________________________________________________
      | sci_name_botw | Scientific name according to BirdLife |
      | good | Are the detection locations all good ("good") or are there out-of-range detections that need to be omitted ("no") |
      | notes | Instructions for manually reviewing/filtering bad records |
-    * [review_sp_botw.csv](./data/species_keys/review_sp_botw.csv) Worksheet used to manually resolve some scientific names for BirdLife
+    * [review_sp_botw.csv](./data/species_keys/review_sp_botw.csv) Worksheet used to manually resolve some scientific names for BirdLife International range maps.
       | Variable | Meaning |
       |----------|--------|
       | com_name | Common name |
@@ -59,13 +59,13 @@ ________________________________________________________________________________
       | flag | variable used to identify taxa to manually resolve |
       | sci_name_botw | BirdLife scientific name (manually resolved |
       | nocturnal | Binary variable indicating whether species is nocturnal (1) or not (0) |
-    * [review_species.csv](./data/species_keys/review_species.csv)
+    * [review_species.csv](./data/species_keys/review_species.csv) Worksheet used to manually resolve some scientific names for EltonTraits
       | Variable | Meaning |
       |----------|---------|
       | com_name | Common name |
       | sci_name | BirdWeather scientific name |
       | sci_name_manual | Scientific name (for matching to EltonTraits), had to resolve these manually |
-    * [taxize_scientific_synonyms.csv](./data/species_keys/taxize_scientific_synonyms.csv)
+    * [taxize_scientific_synonyms.csv](./data/species_keys/taxize_scientific_synonyms.csv) Table with BirdWeather scientific names and synonyms found using the `taxize` R package.
       | Variable | Meaning |
       | ---------| --------|
       | sci_name | BirdWeather scientific name |
