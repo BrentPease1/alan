@@ -77,7 +77,7 @@ ________________________________________________________________________________
       | sci_name_syn | Synonym found using taxize R package |
       
 * [traits](./data/traits) Folder containing the trait tables
-  * [avonet.csv](./data/traits/avonet.csv) This table is from the AVONET databse; see [Tobias et al. 2022](https://onlinelibrary.wiley.com/doi/10.1111/ele.13898) for details. The relevant column that we use in the analysis is the `Range.Size` column, which is the area (in sq. km) of the species' geoegraphic range.
+  * [avonet.csv](./data/traits/avonet.csv) This table is from the [AVONET database](https://figshare.com/s/b990722d72a26b5bfead); see [Tobias et al. 2022](https://onlinelibrary.wiley.com/doi/10.1111/ele.13898) for details. The relevant column that we use in the analysis is the `Range.Size` column, which is the area (in sq. km) of the species' geoegraphic range.
   * [cavity.csv](./data/traits/cavity.csv)
     | Variable | Meaning |
     |----------|---------|
