@@ -33,7 +33,7 @@ ________________________________________________________________________________
 * [range_maps](./data/range_maps) Folder containing range map files for focal species. Range maps come from BirdLife International; the full dataset can be requested at the [BirdLife Data Zone](https://datazone.birdlife.org/species/requestdis).
   * [focal_spp_maps.dbf](./data/range_maps/focal_spp_maps.dbf)
   * [focal_spp_maps.prj](./data/range_maps/focal_spp_maps.prj)
-  * <ins>focal_spp_maps.shp</ins>. **NOTE** the shapefile is too large to share on GitHub; download available **PLACEHOLDER**.
+  * <ins>focal_spp_maps.shp</ins>. **NOTE** the shapefile is too large to share on GitHub; the compressed file can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1t9A3Q3A_ABA6P3PNOzWr6hwl-sogE6-Y/view?usp=sharing). 
   * [focal_spp_maps.shx](./data/range_maps/focal_spp_maps.shx)  
 * [species_keys](./data/species_keys) Folder containing several tables with name keys to join datasets
    * [birdweather_elton_botw_name_key.csv](./data/species_keys/birdweather_elton_botw_name_key.csv) Table containing key to connect BirdWeather, EltonTraits, and BirdLife International names
@@ -137,7 +137,6 @@ ________________________________________________________________________________
 
 ### Results
 * [BirdWeather](./Results/Birdweather) Contains raw output from [101_data-prep_calculate_vocal_activity.R](./Scripts/101_data-prep_calculate_vocal_activity.R)
-  * [activity_measures_nov2023.csv](./Results/Birdweather/activity_measures_nov2023.csv). **PLACEHOLDER** can we delete this?
   * [birdweather_row_counter.csv](./Results/Birdweather/birdweather_row_counter.csv) Information on number of detections used to create barplot in Fig. 1.    
 * [Figures](./Results/Figures) Manuscript figures.
   * [figure_01.png](./Results/Figures/figure_01.png). Figure 1.
@@ -157,6 +156,5 @@ ________________________________________________________________________________
   * [figure_04.pptx](./Results/Figures/figure_04.pptx) Figure 4, PowerPoint file for assembling panels
   * [figure_04a.png](./Results/Figures/figure_04.png) Figure 4A
   * [figure_04b-e.png](./Results/Figures/figure_04.png) Figure 4B-E
-* [VIIRS](./Results/VIIRS) Stores output from [102_data-prep_extract_viirs.R](./Scripts/102_data-prep_extract_viirs.R)
 * <ins>tmb_evening_models_family.RData</ins>. Model outputs for the cessation models. **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1wBKt16Fy2mLdSVHeb0S2pl376LBOiGBE/view?usp=sharing). Download the file and put it in the [Results](./Results) directory to reproduce figures.
 * <ins>tmb_onset_models_family.RData</ins>. Mode outputs for onset models. **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1jx0pyFHKJa1PFT70AGrWoiP7h4j-lVop/view?usp=sharing). Download the file and put it in the [Results](./Results) directory to reproduce figures.
