@@ -155,6 +155,6 @@ ________________________________________________________________________________
   * [figure_04.png](./Results/Figures/figure_04.png) Figure 4
   * [figure_04.pptx](./Results/Figures/figure_04.pptx) Figure 4, PowerPoint file for assembling panels
   * [figure_04a.png](./Results/Figures/figure_04.png) Figure 4A
-  * [figure_04b-e.png](./Results/Figures/figure_04.png) Figure 4B-E
+  * [figure_04b-e.png](./Results/Figures/figure_04b-e.png) Figure 4B-E
 * <ins>tmb_evening_models_family.RData</ins>. Model outputs for the cessation models. **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1wBKt16Fy2mLdSVHeb0S2pl376LBOiGBE/view?usp=sharing). Download the file and put it in the [Results](./Results) directory to reproduce figures.
 * <ins>tmb_onset_models_family.RData</ins>. Mode outputs for onset models. **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1jx0pyFHKJa1PFT70AGrWoiP7h4j-lVop/view?usp=sharing). Download the file and put it in the [Results](./Results) directory to reproduce figures.
