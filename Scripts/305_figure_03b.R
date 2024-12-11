@@ -93,17 +93,18 @@ ggplot() +
     low = MetBrewer::MetPalettes$Isfahan1[[1]][1],
     mid = "white",
     high = MetBrewer::MetPalettes$Isfahan1[[1]][6]) +
-  theme(strip.text = element_text(size = 10, 
+  theme(strip.text = element_text(size = 9, 
                                   color = "black"), 
         legend.position = "bottom",
         legend.title.position = "top",
         # legend.key.size = unit(3, units = "mm"),
         legend.key.width = unit(5, units = "mm"),
+        panel.spacing = unit(-1, "lines"),
         legend.key.height = unit(2, units = "mm"),
-        legend.title = element_text(size = 10,
+        legend.title = element_text(size = 9,
                                     hjust = 0.5,
                                     color = "black"), 
-        legend.box.margin = margin(-20, 0, 5, 0, unit = "pt"),
+        legend.box.margin = margin(-25, 0, 5, 0, unit = "pt"),
         legend.text = element_text(size = 8, 
                                    color = "black"), 
         legend.ticks = element_blank(),
@@ -113,7 +114,7 @@ ggplot() +
 setwd(here::here("Results/Figures"))
 ggsave(
   filename = "figure_03b.png", 
-  width = 3, 
+  width = 3.25, 
   height = 3.75, 
   units = "in", 
   dpi = 600)

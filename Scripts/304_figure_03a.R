@@ -120,7 +120,7 @@ dplyr::full_join(slopes, slopes_e) |>
     axis.title = element_text(color = "black", size = 8),
     axis.text = element_text(color = "black", size = 7),
     axis.line = element_line(color = "black", linewidth = 0.15,),
-    legend.margin = margin(-7, 0, 0, -10)) +
+    legend.margin = margin(-5, 0, 0, -10)) +
   guides(color = guide_legend(nrow = 2),
          fill = guide_legend(nrow = 2))
 
