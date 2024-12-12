@@ -10,7 +10,10 @@
 __________________________________________________________________________________________________________________________________________
 
 ## Abstract
+Light pollution disrupts natural light–dark cues that organisms use as timetables for life. While studies—typically focusing on individual species—have documented earlier onset of bird vocalization in light-polluted landscapes, a synthesis of light pollution effects across species, space, and seasons is lacking. We used a global acoustic dataset of more than 60 million vocal detections, representing 583 bird species, to synthesize effects of light pollution on avian vocalization timing. Averaged across species, space, and seasons, light pollution prolonged avian vocal activity by approximately 50 minutes. Light pollution responses were strongest during the breeding season, for cavity-nesting species, and for species with large geographic ranges. Prolonged activity likely carries fitness costs; documenting these fitness costs and curbing light pollution should be priorities for conservation.
 
+ <img src="https://github.com/BrentPease1/alan/blob/main/Results/Figures/figure_02.png" width="250" />
+ 
 ## Repository Directory
 
 ### Scripts
@@ -157,4 +160,4 @@ ________________________________________________________________________________
   * [figure_04a.png](./Results/Figures/figure_04.png) Figure 4A
   * [figure_04b-e.png](./Results/Figures/figure_04b-e.png) Figure 4B-E
 * <ins>tmb_evening_models_family.RData</ins>. Model outputs for the cessation models. **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1wBKt16Fy2mLdSVHeb0S2pl376LBOiGBE/view?usp=sharing). Download the file and put it in the [Results](./Results) directory to reproduce figures.
-* <ins>tmb_onset_models_family.RData</ins>. Mode outputs for onset models. **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1jx0pyFHKJa1PFT70AGrWoiP7h4j-lVop/view?usp=sharing). Download the file and put it in the [Results](./Results) directory to reproduce figures.
+* <ins>tmb_onset_models_family.RData</ins>. Model outputs for onset models. **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1jx0pyFHKJa1PFT70AGrWoiP7h4j-lVop/view?usp=sharing). Download the file and put it in the [Results](./Results) directory to reproduce figures.
