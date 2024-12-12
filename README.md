@@ -12,7 +12,7 @@ ________________________________________________________________________________
 ## Abstract
 Light pollution disrupts natural light–dark cues that organisms use as timetables for life. While studies—typically focusing on individual species—have documented earlier onset of bird vocalization in light-polluted landscapes, a synthesis of light pollution effects across species, space, and seasons is lacking. We used a global acoustic dataset of more than 60 million vocal detections, representing 583 bird species, to synthesize effects of light pollution on avian vocalization timing. Averaged across species, space, and seasons, light pollution prolonged avian vocal activity by approximately 50 minutes. Light pollution responses were strongest during the breeding season, for cavity-nesting species, and for species with large geographic ranges. Prolonged activity likely carries fitness costs; documenting these fitness costs and curbing light pollution should be priorities for conservation.
 
- <img src="https://github.com/BrentPease1/alan/blob/main/Results/Figures/figure_02.png" width="500" />
+ $~~~~~~~~~~~~~~~$ <img src="https://github.com/BrentPease1/alan/blob/main/Results/Figures/figure_02.png" width="500" />
  
 ## Repository Directory
 
