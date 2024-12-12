@@ -180,8 +180,9 @@ gr_all <- as.data.frame(m5_me) |>
       legend.title.position = "top",
       legend.margin = margin(-5, 0, 0, 0),
       legend.text = element_text(color = "black", size = 8),
-      axis.title = element_blank(), 
-      axis.text.x = element_blank(),
+      axis.title.y = element_blank(),
+      axis.title.x = element_text(color = "black", size = 8),
+      # axis.text.x = element_text(),
       axis.text = element_text(color = "black", size = 8),
       axis.line = element_line(color = "black", linewidth = 0.3)) )
 
