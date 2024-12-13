@@ -177,5 +177,17 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
     | estimate | Value of the point estimate |
     | std_error | Standard error of the estimate |
     | gof | Value of the goodness of fit stats |
+  * [model_summaries.csv](./Results/Tables/model_summaries.csv) Same information as above, but in a less intuitive and friendly format.
+  * [sp_level_parameters.csv](./Results/Tables/sp_level_parameters.csv) Species-grid cell-week level parameters. Refer to [309_plotting_sp_parameters.R](./Scripts/309_plotting_sp_parameters.R) for information on joining these species-level parameters to the spatial grid cells to which estimates correspond for mapping, etc.
+    | Variable | Meaning |
+    |----------|---------|
+    | family | Taxonomic family |
+    | sci_name | Scientific name according to BirdWeather |
+    | grid_ID_cell_5 | Identity of 5-degree grid cell |
+    | week | Week of the year |
+    | onset_intercept | Estimated average onset; 0 = sunrise, negative = before sunrise, positive = after sunrise |
+    | onset_slope | Estimated effect of light pollution; negative = earlier onset with light pollution, positive = later onset with light pollution |
+    | cessation_intercept | Estimated average cessation; 0 = sunset, negative = before sunset, positive = after sunset |
+    | cessation_slope | Estimated effect of light pollution; negative = earlier cessation with light pollution, positve = later cessation with light pollution |
 * <ins>tmb_evening_models_family.RData</ins>. Model outputs for the cessation models. **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1wBKt16Fy2mLdSVHeb0S2pl376LBOiGBE/view?usp=sharing). Download the file and put it in the [Results](./Results) directory to reproduce figures.
 * <ins>tmb_onset_models_family.RData</ins>. Model outputs for onset models. **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1jx0pyFHKJa1PFT70AGrWoiP7h4j-lVop/view?usp=sharing). Download the file and put it in the [Results](./Results) directory to reproduce figures.
