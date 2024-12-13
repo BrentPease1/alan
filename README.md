@@ -159,5 +159,23 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
   * [figure_04.pptx](./Results/Figures/figure_04.pptx) Figure 4, PowerPoint file for assembling panels
   * [figure_04a.png](./Results/Figures/figure_04.png) Figure 4A
   * [figure_04b-e.png](./Results/Figures/figure_04b-e.png) Figure 4B-E
+* [Tables](./Results/Tables) Contains several supplemental tables summarizing model output
+  * [family_level_parameters.csv](./Results/Tables/family_level_parameters.csv) Family-level parameters (intercepts and slopes) from base onset and cessation models
+    | Variable | Meaning |
+    |----------|---------|
+    | family | Taxonomic family |
+    | onset_intercept | Estimated average onset; 0 = sunrise, negative = before sunrise, positive = after sunrise |
+    | onset_slope | Estimated effect of light pollution; negative = earlier onset with light pollution, positive = later onset with light pollution |
+    | cessation_intercept | Estimated average cessation; 0 = sunset, negative = before sunset, positive = after sunset |
+    | cessation_slope | Estimated effect of light pollution; negative = earlier cessation with light pollution, positve = later cessation with light pollution |
+  * [formatted_model_summaries.csv](./Results/Tables/formatted_model_summaries.csv) Summary of higher-level model parameters
+    | Variable | Meaning |
+    |----------|---------|
+    | response | Response variable (onset or cessation) |
+    | predictors | Predictor variables in model |
+    | term | Term within the model. These include fixed effects, standard deviation for random terms (SD), correlations between random terms (Cor), and several model fit statitics( R2 Cond, AIC, RMSE). In this column, *light* is light pollution, *cavity* is nest type (cavity: 1; open: 0), *ground* is proportion of time species spends ground foraging, *latitude* is latitude, and *range_size* is geographic range size |
+    | estimate | Value of the point estimate |
+    | std_error | Standard error of the estimate |
+    | gof | Value of the goodness of fit stats |
 * <ins>tmb_evening_models_family.RData</ins>. Model outputs for the cessation models. **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1wBKt16Fy2mLdSVHeb0S2pl376LBOiGBE/view?usp=sharing). Download the file and put it in the [Results](./Results) directory to reproduce figures.
 * <ins>tmb_onset_models_family.RData</ins>. Model outputs for onset models. **NOTE:** this file is too large to share on GitHub. It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1jx0pyFHKJa1PFT70AGrWoiP7h4j-lVop/view?usp=sharing). Download the file and put it in the [Results](./Results) directory to reproduce figures.
