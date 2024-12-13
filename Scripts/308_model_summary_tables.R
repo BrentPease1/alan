@@ -36,7 +36,18 @@ sp_param <- m1_ranef$cond$`sp_cell5_week:family` |>
     d_onset |> 
       dplyr::select(sp_cell5_week, sci_name, grid_ID_cell_5, week) |> 
       dplyr::distinct()) |> 
-  dplyr::select(family, sci_name, grid_ID_cell_5, week, sp_cell5_week, intercept, slope = alan_sc)
+  dplyr::select(family, sci_name, grid_ID_cell_5, week, onset_intercept = intercept, onset_slope = alan_sc) |> 
+  dplyr::full_join(
+    e1_ranef$cond$`sp_cell5_week:family` |> 
+      as_tibble(rownames = "group") |> 
+      tidyr::separate(group, into = c("sp_cell5_week", "family", sep = ":")) |> 
+      janitor::clean_names() |> 
+      dplyr::mutate(sp_cell5_week = as.numeric(sp_cell5_week)) |> 
+      dplyr::left_join(
+        d_e |> 
+          dplyr::select(sp_cell5_week, sci_name, grid_ID_cell_5, week) |> 
+          dplyr::distinct()) |> 
+      dplyr::select(family, sci_name, grid_ID_cell_5, week, cessation_intercept = intercept, cessation_slope = alan_sc))
 
 setwd(here::here("Results/Tables"))
 readr::write_csv( fam_param, "family_level_parameters.csv")

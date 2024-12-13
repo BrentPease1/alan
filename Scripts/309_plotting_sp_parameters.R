@@ -27,7 +27,7 @@ params_with_spatial_info <- d |>
 params_with_spatial_info |> 
   dplyr::filter(sci_name == "Turdus migratorius") |> 
   dplyr::filter( week %in% c(1, 10, 20, 30, 40, 50)) |> 
-  ggplot(aes( geometry = geometry, fill = slope)) +
+  ggplot(aes( geometry = geometry, fill = onset_slope)) +
   geom_sf() + 
   facet_wrap(~week) +
   scale_fill_gradient2(
