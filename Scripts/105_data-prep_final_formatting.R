@@ -36,9 +36,7 @@ dat_cess <- d |>
   dplyr::filter(category == "ev_ces" )
 
 final <- dat_onset |> 
-  dplyr::select(lat, lon, starts_with("grid_ID"), week, sci_name, value, avg_rad) |> 
-  dplyr::group_by(sci_name, grid_ID_cell_10, week) |> 
-  dplyr::mutate(group = dplyr::cur_group_id())
+  dplyr::select(lat, lon, date, starts_with("grid_ID"), week, sci_name, value, avg_rad) 
 
 setwd(here::here("data/vocalization_activity"))
 save(
@@ -46,9 +44,7 @@ save(
   file = "onset_data_conf_0.75_det_100_grid_10.RData")
 
 final_cess <- dat_cess |> 
-  dplyr::select(lat, lon, starts_with("grid_ID"), week, sci_name, value, avg_rad) |> 
-  dplyr::group_by(sci_name, grid_ID_cell_10, week) |> 
-  dplyr::mutate(group = dplyr::cur_group_id())
+  dplyr::select(lat, lon, date, starts_with("grid_ID"), week, sci_name, value, avg_rad) 
 
 setwd(here::here("data/vocalization_activity"))
 save(
