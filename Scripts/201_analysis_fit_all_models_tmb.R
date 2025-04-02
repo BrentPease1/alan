@@ -54,11 +54,7 @@ key2 <- key |>
   dplyr::mutate(sci_name_avo = ifelse(sci_name_avo  == "Tetrastes bonasia",
                                       "Bonasa bonasia", sci_name_avo))
 
-tot.voc <- readr::read_csv("tot_voc.csv")
-
-tot.voc.com <- tot.voc |> 
-  dplyr::select(lat, lon, date, tot, sr, shan) |> 
-  dplyr::distinct()
+load( here::here("data/vocalization_activity/tot_voc.RData"))
 
 eye <- readr::read_csv(here::here("data/traits/ritland_clean.csv"))
 
@@ -126,7 +122,7 @@ d_e <- final_cess |>
                  mass_sc = as.numeric(scale(log(mass))),
                  migration = factor(migration),
                  hd = factor(hd)) |> 
-  dplyr::left_join( tot.voc.com ) |> 
+  dplyr::left_join( tot.voc ) |> 
   dplyr::mutate( 
     shan_raw = shan,
     shan = as.numeric(scale(shan)),
@@ -189,7 +185,7 @@ d_onset <- final |>
                  under_sc = as.numeric(scale(for_strat_understory)), 
                  low_sc = as.numeric(scale (for_strat_ground + for_strat_understory)),
                  mass_sc = as.numeric(scale(log(mass)))) |> 
-  dplyr::left_join( tot.voc.com ) |> 
+  dplyr::left_join( tot.voc ) |> 
   dplyr::mutate( 
     shan_raw = shan,
     shan = as.numeric(scale(shan)),
@@ -209,7 +205,7 @@ d_onset <- final |>
 
 # clean up environment & save memory - remove uneeded tables
 rm(avo, cavity, elton, final, 
-   final_cess, key, key2, tot.voc, tot.voc.com, eye, eye.fam, eye.sp)
+   final_cess, key, key2, tot.voc, eye, eye.fam, eye.sp)
 
 # base model, evening cessation
 # fixed effect of light pollution (alan_sc)
