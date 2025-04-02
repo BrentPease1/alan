@@ -152,6 +152,15 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
     | com_name | BirdWeather common name |
     | sci_name_bw | BirdWeather scientific name |
     | sci_name_botw | BirdLife scientific name |
+  * [tot_voc.RData](./data/vocalization_activity/tot_voc.RData) Data on bird diversity at BirdWeather sensor-date combinations. RData object containing one table, "tot.voc", with the following columns:
+    | Variable | Meaning |
+    |----------|---------|
+    | lat | Latitude of BirdWeather sensor |
+    | lon | Longitude of BirdWeather sensor |
+    | tot | Total number of vocalizations across all species |
+    | sr | Number of species detected at station-date combination |
+    | shan | Shannon diversity of species detections at station-date |
+    
   * <ins>vocal_activity_annotated_conf_0_det10.csv</ins>. Observed vocalization timing response variables with least conservative filtering (confidence >=0 with >=10 detections for a species per station-date). **NOTE:** this file is too large to share on GitHub (~2GB, 12.9 million rows). It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1jFnviuHFIiTEZnk-knrscRLgfCQt7mam/view?usp=sharing). Download this file and put it in the [data/vocalization_activity](./data/vocalization_activity) folder to run data preparation scripts [103_data-prep_resolve_names.R](./Scripts/103_data-prep_resolve_names.R) and [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R).
     | Variable | Meaning |
     |----------|---------|
