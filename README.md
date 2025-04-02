@@ -162,7 +162,13 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
   | lon | Longitufde of BirdWeather sensor |
   | date | Date |
   | ill | Illumination (brightness) |
-  | phase | Percent of moon face illuminated | 
+  | phase | Percent of moon face illuminated |
+* [rd_dist.csv](./data/rd_dist.csv) Distance-to-road data (proxy for noise pollution)
+  | Variable | Meaning |
+  |----------|---------|
+  | lat | Latitude of BirdWeather sensor |
+  | lon | Longitufde of BirdWeather sensor |
+  | rd  | Distance (m) between BirdWeather sensor and nearest road |
 
 ### Results
 * [BirdWeather](./Results/Birdweather) Contains raw output from [101_data-prep_calculate_vocal_activity.R](./Scripts/101_data-prep_calculate_vocal_activity.R)
