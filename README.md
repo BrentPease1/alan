@@ -37,7 +37,8 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
 * [304_figure_03a.R](./Scripts/304_figure_03a.R). Script for creating Fig 3a
 * [305_figure_03b.R](./Scripts/305_figure_03b.R). Script for creating Fig. 3b
 * [306_figure_04a.R](./Scripts/306_figure_04a.R). Script for creating Fig. 4a
-* [307_figure_04b-e.R](./Scripts/307_figure_04b-e.R). Script for creating Fig. 4b-e
+* [307_figure_04b.R](./Scripts/307_figure_04b.R). Script for creating Fig. 4b
+* [308_figure_04c.R](./Scripts/308_figure_04c.R). Script for creating Fig. 4c
 * [308_model_summary_tables.R](./Scripts/308_model_summary_tables.R) Script for creating Excel tables with parameters estimated by models
 * [309_plotting_sp_parameters.R](./Scripts/309_plotting_sp_parameters.R) Script demonstrating how to join species-level parameters with spatial grid
 
