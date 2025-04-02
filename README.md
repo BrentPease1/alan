@@ -168,8 +168,12 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
   * [figure_03b.png](./Results/Figures/figure_03b.png) Figure 3B
   * [figure_04.png](./Results/Figures/figure_04.png) Figure 4
   * [figure_04.pptx](./Results/Figures/figure_04.pptx) Figure 4, PowerPoint file for assembling panels
-  * [figure_04a.png](./Results/Figures/figure_04.png) Figure 4A
-  * [figure_04b-e.png](./Results/Figures/figure_04b-e.png) Figure 4B-E
+  * [figure_04a.png](./Results/Figures/figure_04a.png) Figure 4A
+  * [figure_04b.png](./Results/Figures/figure_04b.png) Figure 4B
+  * [figure_04c.png](./Results/Figures/figure_04c.png) Figure 4C
+  * [figure_s01.png](./Results/Figures/figure_s01.png) Figure S1
+  * [figure_s02.png](./Results/Figures/figure_s02.png) Figure S2
+  * [figure_s03.png](./Results/Figures/figure_s03.png) Figure S3
 * [Tables](./Results/Tables) Contains several supplemental tables summarizing model output
   * [family_level_parameters.csv](./Results/Tables/family_level_parameters.csv) Family-level parameters (intercepts and slopes) from base onset and cessation models
     | Variable | Meaning |
