@@ -1,6 +1,8 @@
 response,predictors,term,grouping,estimate,std_error,gof
-cessation,light,intercept,NA,-2.0759999999999996,0.15900000000000003,NA
-cessation,light,light,NA,0.088,0.041,NA
+cessation,light,intercept,NA,-2.0759999999999996,NA,NA
+cessation,light,intercept,NA,NA,0.15900000000000003,NA
+cessation,light,light,NA,0.088,NA,NA
+cessation,light,light,NA,NA,0.041,NA
 cessation,light,SD (intercept),family,1.349,NA,NA
 cessation,light,SD (light),family,0.315,NA,NA
 cessation,light,"Cor (intercept, light)",family,0.542,NA,NA
@@ -11,8 +13,10 @@ cessation,light,"Cor (intercept, light)",sp.cell.week:family,-0.017,NA,NA
 cessation,light,R2 Cond.,NA,NA,NA,0.555
 cessation,light,AIC,NA,NA,NA,7474744.9
 cessation,light,RMSE,NA,NA,NA,1.6800000000000002
-cessation,light + cavity + light x cavity,intercept,NA,-1.846,0.16,NA
-cessation,light + cavity + light x cavity,light,NA,0.10400000000000001,0.043000000000000003,NA
+cessation,light + cavity + light x cavity,intercept,NA,-1.846,NA,NA
+cessation,light + cavity + light x cavity,intercept,NA,NA,0.16,NA
+cessation,light + cavity + light x cavity,light,NA,0.10400000000000001,NA,NA
+cessation,light + cavity + light x cavity,light,NA,NA,0.043000000000000003,NA
 cessation,light + cavity + light x cavity,cavity,NA,-1.005,0.031,NA
 cessation,light + cavity + light x cavity,light x cavity,NA,-0.046,0.019,NA
 cessation,light + cavity + light x cavity,SD (intercept),family,1.353,NA,NA
@@ -25,22 +29,44 @@ cessation,light + cavity + light x cavity,"Cor (intercept, light)",sp.cell.week:
 cessation,light + cavity + light x cavity,R2 Cond.,NA,NA,NA,0.5690000000000001
 cessation,light + cavity + light x cavity,AIC,NA,NA,NA,7473673.2
 cessation,light + cavity + light x cavity,RMSE,NA,NA,NA,1.6900000000000002
-cessation,light + foraging + light x foraging,intercept,NA,-2.089,0.15800000000000003,NA
-cessation,light + foraging + light x foraging,light,NA,0.085,0.04,NA
-cessation,light + foraging + light x foraging,ground,NA,0.15600000000000003,0.007,NA
-cessation,light + foraging + light x foraging,light x ground,NA,-0.001,0.004,NA
-cessation,light + foraging + light x foraging,SD (intercept),family,1.335,NA,NA
-cessation,light + foraging + light x foraging,SD (light),family,0.309,NA,NA
-cessation,light + foraging + light x foraging,"Cor (intercept, light)",family,0.542,NA,NA
-cessation,light + foraging + light x foraging,SD (Observations),NA,1.732,NA,NA
-cessation,light + foraging + light x foraging,SD (intercept),sp.cell.week:family,1.288,NA,NA
-cessation,light + foraging + light x foraging,SD (light),sp.cell.week:family,0.384,NA,NA
-cessation,light + foraging + light x foraging,"Cor (intercept, light)",sp.cell.week:family,-0.017,NA,NA
-cessation,light + foraging + light x foraging,R2 Cond.,NA,NA,NA,0.553
-cessation,light + foraging + light x foraging,AIC,NA,NA,NA,7474242.7
-cessation,light + foraging + light x foraging,RMSE,NA,NA,NA,1.6800000000000002
-cessation,light + latitude + light x latitude,intercept,NA,-2.3379999999999996,0.14200000000000002,NA
-cessation,light + latitude + light x latitude,light,NA,-0.007,0.015,NA
+cessation,light + eye + light x eye,intercept,NA,-2.164,NA,NA
+cessation,light + eye + light x eye,intercept,NA,NA,0.15300000000000002,NA
+cessation,light + eye + light x eye,light,NA,0.07600000000000001,NA,NA
+cessation,light + eye + light x eye,light,NA,NA,0.041,NA
+cessation,light + eye + light x eye,eye size,NA,0.24600000000000002,0.012,NA
+cessation,light + eye + light x eye,light x eye size,NA,0.026000000000000002,0.007,NA
+cessation,light + eye + light x eye,SD (intercept),family,1.29,NA,NA
+cessation,light + eye + light x eye,SD (light),family,0.311,NA,NA
+cessation,light + eye + light x eye,"Cor (intercept, light)",family,0.559,NA,NA
+cessation,light + eye + light x eye,SD (Observations),NA,1.732,NA,NA
+cessation,light + eye + light x eye,SD (intercept),sp.cell.week:family,1.288,NA,NA
+cessation,light + eye + light x eye,SD (light),sp.cell.week:family,0.385,NA,NA
+cessation,light + eye + light x eye,"Cor (intercept, light)",sp.cell.week:family,-0.02,NA,NA
+cessation,light + eye + light x eye,R2 Cond.,NA,NA,NA,0.548
+cessation,light + eye + light x eye,AIC,NA,NA,NA,7474347.6
+cessation,light + eye + light x eye,RMSE,NA,NA,NA,1.6800000000000002
+cessation,light + habitat + light x habitat,intercept,NA,-2.038,NA,NA
+cessation,light + habitat + light x habitat,intercept,NA,NA,0.16,NA
+cessation,light + habitat + light x habitat,light,NA,0.12400000000000001,NA,NA
+cessation,light + habitat + light x habitat,light,NA,NA,0.042,NA
+cessation,light + habitat + light x habitat,semi-open habitat,NA,-0.07,0.014,NA
+cessation,light + habitat + light x habitat,open habitat,NA,-0.04,0.019,NA
+cessation,light + habitat + light x habitat,light x semi-open habitat,NA,-0.044,0.008,NA
+cessation,light + habitat + light x habitat,light x open habitat,NA,-0.051000000000000004,0.011,NA
+cessation,light + habitat + light x habitat,SD (intercept),family,1.354,NA,NA
+cessation,light + habitat + light x habitat,SD (light),family,0.318,NA,NA
+cessation,light + habitat + light x habitat,"Cor (intercept, light)",family,0.555,NA,NA
+cessation,light + habitat + light x habitat,SD (Observations),NA,1.732,NA,NA
+cessation,light + habitat + light x habitat,SD (intercept),sp.cell.week:family,1.292,NA,NA
+cessation,light + habitat + light x habitat,SD (light),sp.cell.week:family,0.384,NA,NA
+cessation,light + habitat + light x habitat,"Cor (intercept, light)",sp.cell.week:family,-0.019,NA,NA
+cessation,light + habitat + light x habitat,R2 Cond.,NA,NA,NA,0.556
+cessation,light + habitat + light x habitat,AIC,NA,NA,NA,7474688.9
+cessation,light + habitat + light x habitat,RMSE,NA,NA,NA,1.6800000000000002
+cessation,light + latitude + light x latitude,intercept,NA,-2.3379999999999996,NA,NA
+cessation,light + latitude + light x latitude,intercept,NA,NA,0.14200000000000002,NA
+cessation,light + latitude + light x latitude,light,NA,-0.007,NA,NA
+cessation,light + latitude + light x latitude,light,NA,NA,0.015,NA
 cessation,light + latitude + light x latitude,latitude,NA,-0.09,0.056,NA
 cessation,light + latitude + light x latitude,light x latitude,NA,-0.02,0.027,NA
 cessation,light + latitude + light x latitude,SD (intercept),family,1.074,NA,NA
@@ -67,8 +93,28 @@ cessation,light + latitude + light x latitude,"Cor (light, latitude)",sp.week:fa
 cessation,light + latitude + light x latitude,R2 Cond.,NA,NA,NA,0.48400000000000004
 cessation,light + latitude + light x latitude,AIC,NA,NA,NA,7492892.5
 cessation,light + latitude + light x latitude,RMSE,NA,NA,NA,1.81
-cessation,light + range + light x range,intercept,NA,-2.033,0.15700000000000003,NA
-cessation,light + range + light x range,light,NA,0.092,0.041,NA
+cessation,light + migration + light x migration,intercept,NA,-1.986,NA,NA
+cessation,light + migration + light x migration,intercept,NA,NA,0.15800000000000003,NA
+cessation,light + migration + light x migration,light,NA,0.056,NA,NA
+cessation,light + migration + light x migration,light,NA,NA,0.043000000000000003,NA
+cessation,light + migration + light x migration,partial migrant,NA,-0.254,0.016,NA
+cessation,light + migration + light x migration,migrant,NA,-0.10600000000000001,0.018000000000000002,NA
+cessation,light + migration + light x migration,light x partial migrant,NA,0.001,0.008,NA
+cessation,light + migration + light x migration,light x migrant,NA,0.08600000000000001,0.01,NA
+cessation,light + migration + light x migration,SD (intercept),family,1.329,NA,NA
+cessation,light + migration + light x migration,SD (light),family,0.33499999999999996,NA,NA
+cessation,light + migration + light x migration,"Cor (intercept, light)",family,0.541,NA,NA
+cessation,light + migration + light x migration,SD (Observations),NA,1.732,NA,NA
+cessation,light + migration + light x migration,SD (intercept),sp.cell.week:family,1.289,NA,NA
+cessation,light + migration + light x migration,SD (light),sp.cell.week:family,0.384,NA,NA
+cessation,light + migration + light x migration,"Cor (intercept, light)",sp.cell.week:family,-0.022,NA,NA
+cessation,light + migration + light x migration,R2 Cond.,NA,NA,NA,0.553
+cessation,light + migration + light x migration,AIC,NA,NA,NA,7474395.8
+cessation,light + migration + light x migration,RMSE,NA,NA,NA,1.6800000000000002
+cessation,light + range + light x range,intercept,NA,-2.033,NA,NA
+cessation,light + range + light x range,intercept,NA,NA,0.15700000000000003,NA
+cessation,light + range + light x range,light,NA,0.092,NA,NA
+cessation,light + range + light x range,light,NA,NA,0.041,NA
 cessation,light + range + light x range,range_size,NA,0.171,0.005,NA
 cessation,light + range + light x range,light x range_size,NA,0.013000000000000001,0.003,NA
 cessation,light + range + light x range,SD (intercept),family,1.33,NA,NA
@@ -81,8 +127,10 @@ cessation,light + range + light x range,"Cor (intercept, light)",sp.cell.week:fa
 cessation,light + range + light x range,R2 Cond.,NA,NA,NA,0.552
 cessation,light + range + light x range,AIC,NA,NA,NA,7473732.4
 cessation,light + range + light x range,RMSE,NA,NA,NA,1.6800000000000002
-onset,light,intercept,NA,1.054,0.12100000000000001,NA
-onset,light,light,NA,-0.051000000000000004,0.027,NA
+onset,light,intercept,NA,1.054,NA,NA
+onset,light,intercept,NA,NA,0.12100000000000001,NA
+onset,light,light,NA,-0.051000000000000004,NA,NA
+onset,light,light,NA,NA,0.027,NA
 onset,light,SD (intercept),family,1.1340000000000001,NA,NA
 onset,light,SD (light),family,0.21900000000000003,NA,NA
 onset,light,"Cor (intercept, light)",family,-0.008,NA,NA
@@ -93,8 +141,10 @@ onset,light,"Cor (intercept, light)",sp.cell.week:family,-0.018000000000000002,N
 onset,light,R2 Cond.,NA,NA,NA,0.443
 onset,light,AIC,NA,NA,NA,10771377.3
 onset,light,RMSE,NA,NA,NA,1.74
-onset,light + cavity + light x cavity,intercept,NA,0.937,0.118,NA
-onset,light + cavity + light x cavity,light,NA,-0.066,0.028,NA
+onset,light + cavity + light x cavity,intercept,NA,0.937,NA,NA
+onset,light + cavity + light x cavity,intercept,NA,NA,0.118,NA
+onset,light + cavity + light x cavity,light,NA,-0.066,NA,NA
+onset,light + cavity + light x cavity,light,NA,NA,0.028,NA
 onset,light + cavity + light x cavity,cavity,NA,0.599,0.023,NA
 onset,light + cavity + light x cavity,light x cavity,NA,0.063,0.017,NA
 onset,light + cavity + light x cavity,SD (intercept),family,1.106,NA,NA
@@ -107,22 +157,44 @@ onset,light + cavity + light x cavity,"Cor (intercept, light)",sp.cell.week:fami
 onset,light + cavity + light x cavity,R2 Cond.,NA,NA,NA,0.444
 onset,light + cavity + light x cavity,AIC,NA,NA,NA,10770688.4
 onset,light + cavity + light x cavity,RMSE,NA,NA,NA,1.74
-onset,light + foraging + light x foraging,intercept,NA,1.057,0.12000000000000001,NA
-onset,light + foraging + light x foraging,light,NA,-0.051000000000000004,0.027,NA
-onset,light + foraging + light x foraging,ground,NA,-0.052000000000000005,0.005,NA
-onset,light + foraging + light x foraging,light x ground,NA,0.002,0.004,NA
-onset,light + foraging + light x foraging,SD (intercept),family,1.1280000000000001,NA,NA
-onset,light + foraging + light x foraging,SD (light),family,0.21900000000000003,NA,NA
-onset,light + foraging + light x foraging,"Cor (intercept, light)",family,-0.016,NA,NA
-onset,light + foraging + light x foraging,SD (Observations),NA,1.778,NA,NA
-onset,light + foraging + light x foraging,SD (intercept),sp.cell.week:family,0.986,NA,NA
-onset,light + foraging + light x foraging,SD (light),sp.cell.week:family,0.457,NA,NA
-onset,light + foraging + light x foraging,"Cor (intercept, light)",sp.cell.week:family,-0.018000000000000002,NA,NA
-onset,light + foraging + light x foraging,R2 Cond.,NA,NA,NA,0.442
-onset,light + foraging + light x foraging,AIC,NA,NA,NA,10771274.4
-onset,light + foraging + light x foraging,RMSE,NA,NA,NA,1.74
-onset,light + latitude + light x latitude,intercept,NA,1.214,0.114,NA
-onset,light + latitude + light x latitude,light,NA,-0.063,0.023,NA
+onset,light + eye + light x eye,intercept,NA,1.124,NA,NA
+onset,light + eye + light x eye,intercept,NA,NA,0.111,NA
+onset,light + eye + light x eye,light,NA,-0.044,NA,NA
+onset,light + eye + light x eye,light,NA,NA,0.026000000000000002,NA
+onset,light + eye + light x eye,eye size,NA,-0.194,0.009,NA
+onset,light + eye + light x eye,light x eye size,NA,-0.018000000000000002,0.006,NA
+onset,light + eye + light x eye,SD (intercept),family,1.037,NA,NA
+onset,light + eye + light x eye,SD (light),family,0.21200000000000002,NA,NA
+onset,light + eye + light x eye,"Cor (intercept, light)",family,-0.079,NA,NA
+onset,light + eye + light x eye,SD (Observations),NA,1.778,NA,NA
+onset,light + eye + light x eye,SD (intercept),sp.cell.week:family,0.982,NA,NA
+onset,light + eye + light x eye,SD (light),sp.cell.week:family,0.457,NA,NA
+onset,light + eye + light x eye,"Cor (intercept, light)",sp.cell.week:family,-0.02,NA,NA
+onset,light + eye + light x eye,R2 Cond.,NA,NA,NA,0.42500000000000004
+onset,light + eye + light x eye,AIC,NA,NA,NA,10770935
+onset,light + eye + light x eye,RMSE,NA,NA,NA,1.74
+onset,light + habitat + light x habitat,intercept,NA,1.071,NA,NA
+onset,light + habitat + light x habitat,intercept,NA,NA,0.12100000000000001,NA
+onset,light + habitat + light x habitat,light,NA,-0.046,NA,NA
+onset,light + habitat + light x habitat,light,NA,NA,0.027,NA
+onset,light + habitat + light x habitat,semi-open habitat,NA,-0.016,0.01,NA
+onset,light + habitat + light x habitat,open habitat,NA,-0.028999999999999998,0.014,NA
+onset,light + habitat + light x habitat,light x semi-open habitat,NA,0.008,0.007,NA
+onset,light + habitat + light x habitat,light x open habitat,NA,-0.023,0.01,NA
+onset,light + habitat + light x habitat,SD (intercept),family,1.1320000000000001,NA,NA
+onset,light + habitat + light x habitat,SD (light),family,0.21800000000000003,NA,NA
+onset,light + habitat + light x habitat,"Cor (intercept, light)",family,-0.025,NA,NA
+onset,light + habitat + light x habitat,SD (Observations),NA,1.778,NA,NA
+onset,light + habitat + light x habitat,SD (intercept),sp.cell.week:family,0.986,NA,NA
+onset,light + habitat + light x habitat,SD (light),sp.cell.week:family,0.457,NA,NA
+onset,light + habitat + light x habitat,"Cor (intercept, light)",sp.cell.week:family,-0.019,NA,NA
+onset,light + habitat + light x habitat,R2 Cond.,NA,NA,NA,0.443
+onset,light + habitat + light x habitat,AIC,NA,NA,NA,10771367.1
+onset,light + habitat + light x habitat,RMSE,NA,NA,NA,1.74
+onset,light + latitude + light x latitude,intercept,NA,1.214,NA,NA
+onset,light + latitude + light x latitude,intercept,NA,NA,0.114,NA
+onset,light + latitude + light x latitude,light,NA,-0.063,NA,NA
+onset,light + latitude + light x latitude,light,NA,NA,0.023,NA
 onset,light + latitude + light x latitude,latitude,NA,0.112,0.051000000000000004,NA
 onset,light + latitude + light x latitude,light x latitude,NA,-0.016,0.019,NA
 onset,light + latitude + light x latitude,SD (intercept),family,0.961,NA,NA
@@ -149,8 +221,28 @@ onset,light + latitude + light x latitude,"Cor (light, latitude)",sp.week:family
 onset,light + latitude + light x latitude,R2 Cond.,NA,NA,NA,0.37
 onset,light + latitude + light x latitude,AIC,NA,NA,NA,10840279.7
 onset,light + latitude + light x latitude,RMSE,NA,NA,NA,1.85
-onset,light + range + light x range,intercept,NA,1.05,0.12100000000000001,NA
-onset,light + range + light x range,light,NA,-0.056,0.026000000000000002,NA
+onset,light + migration + light x migration,intercept,NA,0.964,NA,NA
+onset,light + migration + light x migration,intercept,NA,NA,0.12000000000000001,NA
+onset,light + migration + light x migration,light,NA,-0.039,NA,NA
+onset,light + migration + light x migration,light,NA,NA,0.026000000000000002,NA
+onset,light + migration + light x migration,partial migrant,NA,0.272,0.012,NA
+onset,light + migration + light x migration,migrant,NA,0.14300000000000002,0.013000000000000001,NA
+onset,light + migration + light x migration,light x partial migrant,NA,0.001,0.008,NA
+onset,light + migration + light x migration,light x migrant,NA,-0.037,0.009,NA
+onset,light + migration + light x migration,SD (intercept),family,1.122,NA,NA
+onset,light + migration + light x migration,SD (light),family,0.21300000000000002,NA,NA
+onset,light + migration + light x migration,"Cor (intercept, light)",family,0.02,NA,NA
+onset,light + migration + light x migration,SD (Observations),NA,1.778,NA,NA
+onset,light + migration + light x migration,SD (intercept),sp.cell.week:family,0.982,NA,NA
+onset,light + migration + light x migration,SD (light),sp.cell.week:family,0.457,NA,NA
+onset,light + migration + light x migration,"Cor (intercept, light)",sp.cell.week:family,-0.019,NA,NA
+onset,light + migration + light x migration,R2 Cond.,NA,NA,NA,0.441
+onset,light + migration + light x migration,AIC,NA,NA,NA,10770807.3
+onset,light + migration + light x migration,RMSE,NA,NA,NA,1.74
+onset,light + range + light x range,intercept,NA,1.05,NA,NA
+onset,light + range + light x range,intercept,NA,NA,0.12100000000000001,NA
+onset,light + range + light x range,light,NA,-0.056,NA,NA
+onset,light + range + light x range,light,NA,NA,0.026000000000000002,NA
 onset,light + range + light x range,range_size,NA,-0.005,0.004,NA
 onset,light + range + light x range,light x range_size,NA,-0.014,0.003,NA
 onset,light + range + light x range,SD (intercept),family,1.135,NA,NA
@@ -163,3 +255,35 @@ onset,light + range + light x range,"Cor (intercept, light)",sp.cell.week:family
 onset,light + range + light x range,R2 Cond.,NA,NA,NA,0.443
 onset,light + range + light x range,AIC,NA,NA,NA,10771355.9
 onset,light + range + light x range,RMSE,NA,NA,NA,1.74
+onset,light + species + light x species,intercept,NA,1.1260000000000001,NA,NA
+onset,light + species + light x species,intercept,NA,NA,0.12100000000000001,NA
+onset,light + species + light x species,light,NA,-0.057,NA,NA
+onset,light + species + light x species,light,NA,NA,0.023,NA
+onset,light + species + light x species,species richness,NA,-0.21300000000000002,NA,NA
+onset,light + species + light x species,species richness,NA,NA,0.027,NA
+onset,light + species + light x species,light x species richness,NA,0.021,NA,NA
+onset,light + species + light x species,light x species richness,NA,NA,0.017,NA
+onset,light + species + light x species,SD (intercept),family,1.137,NA,NA
+onset,light + species + light x species,SD (light),family,0.19,NA,NA
+onset,light + species + light x species,"Cor (intercept, light)",family,0.128,NA,NA
+onset,light + species + light x species,SD (light x species richness),NA,0.136,NA,NA
+onset,light + species + light x species,SD (species richness),family,0.21300000000000002,NA,NA
+onset,light + species + light x species,"Cor (intercept, light x species richness)",NA,-0.24700000000000003,NA,NA
+onset,light + species + light x species,"Cor (intercept, species richness)",family,0.15100000000000002,NA,NA
+onset,light + species + light x species,"Cor (light, light x species richness)",NA,0.6849999999999999,NA,NA
+onset,light + species + light x species,"Cor (species richness, light x species richness)",NA,-0.464,NA,NA
+onset,light + species + light x species,"Cor (light, species richness)",family,-0.703,NA,NA
+onset,light + species + light x species,SD (Observations),NA,1.734,NA,NA
+onset,light + species + light x species,SD (intercept),sp.cell.week:family,0.97,NA,NA
+onset,light + species + light x species,SD (light),sp.cell.week:family,0.42500000000000004,NA,NA
+onset,light + species + light x species,"Cor (intercept, light)",sp.cell.week:family,-0.014,NA,NA
+onset,light + species + light x species,SD (species richness),sp.cell.week:family,0.375,NA,NA
+onset,light + species + light x species,SD (light x species richness),NA,0.252,NA,NA
+onset,light + species + light x species,"Cor (intercept, species richness)",sp.cell.week:family,0.112,NA,NA
+onset,light + species + light x species,"Cor (intercept, light x species richness)",NA,0.08700000000000001,NA,NA
+onset,light + species + light x species,"Cor (light, species richness)",sp.cell.week:family,0.08,NA,NA
+onset,light + species + light x species,"Cor (light, light x species richness)",NA,-0.089,NA,NA
+onset,light + species + light x species,"Cor (species richness, light x species richness)",NA,-0.116,NA,NA
+onset,light + species + light x species,R2 Cond.,NA,NA,NA,0.48000000000000004
+onset,light + species + light x species,AIC,NA,NA,NA,10685705.1
+onset,light + species + light x species,RMSE,NA,NA,NA,1.6900000000000002
