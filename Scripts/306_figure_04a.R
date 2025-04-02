@@ -1,121 +1,155 @@
-library(avotrex)
-library(tidyverse)
 library(here)
-library(ape)
-library(biscale)
-library(janitor)
-library(ggtree)
-library(cowplot)
+library(tidyverse)
 library(glmmTMB)
-
-data("BirdTree_trees")
-data("bird.families")
-
-phy <- BirdTree_trees[[1]]
-tax <- BirdTree_tax |> 
-  tibble::as_tibble()
-
-key <- readr::read_csv(here::here("data/species_keys/birdweather_elton_botw_name_key.csv"))
-
-load(here::here("data/vocalization_activity/onset_data_conf_0.75_det_100_grid_10.RData"))
-load(here::here("data/vocalization_activity/cessation_data_conf_0.75_det_100_grid_10.RData"))
-
-species <- final |> 
-  dplyr::ungroup() |> 
-  dplyr::select(sci_name) |> 
-  dplyr::distinct() |> 
-  dplyr::full_join(
-    final_cess |> 
-      dplyr::ungroup() |> 
-      dplyr::select(sci_name) |> 
-      dplyr::distinct()) |>  
-  dplyr::rename(sci_name_bw = sci_name) |> 
-  dplyr::left_join(key) 
-
-focal_spp <- tax |> 
-  dplyr::mutate(sci_name = paste(Genus, Species)) |>
-  dplyr::inner_join( 
-    tibble::tibble(
-      sci_name = unique(species$sci_name_elton))) |> 
-  dplyr::group_by(BLFamilyLatin) |> 
-  dplyr::slice(1) |> 
-  dplyr::select(TipLabel, family = BLFamilyLatin) |> 
-  dplyr::ungroup() 
-
-not_data <- dplyr::anti_join( tax, focal_spp)
-
-my_tree <- ape::drop.tip( phy, not_data$TipLabel)
-
-family_map <- focal_spp |> 
-  tibble::deframe()
-
-my_tree$tip.label <- family_map[my_tree$tip.label]
+library(MetBrewer)
+library(cleangeo)
+library(sf)
+library(rworldmap)
 
 setwd(here::here("Results"))
-load("tmb_onset_models_family.RData")
-load("tmb_evening_models_family.RData")
 
-m1_ranef <- glmmTMB::ranef(m1)
-e1_ranef <- glmmTMB::ranef(e1)
+load("onset.RData")
+rm(m1b, m2, m3, m4, m5, m6, m7, m8)
 
-fam_re <- m1_ranef$cond$family |> 
-  tibble::as_tibble(rownames = "tip.label") |> 
-  janitor::clean_names() |> 
-  dplyr::rename(tip.label = tip_label,
-                int.m = intercept, 
-                slope.m = alan_sc)
+m1_ranef <- glmmTMB::ranef( m1 )
 
-fam_re_e <- e1_ranef$cond$family |> 
-  tibble::as_tibble(rownames = "tip.label") |> 
-  janitor::clean_names() |> 
-  dplyr::rename(tip.label = tip_label,
-                int.e = intercept, 
-                slope.e = alan_sc)
+sPDF <- rworldmap::getMap()
 
-fam_bi <- fam_re |> 
-  dplyr::left_join(
-    fam_re_e) |> 
-  dplyr::mutate( int.m.cat = ifelse(int.m < 0, 1, 2), 
-                 slope.m.cat = ifelse( slope.m < 0, 1, 2),
-                 
-                 int.e.cat = ifelse(!is.na(int.e) & int.e > 0, 1,
-                                    ifelse(!is.na(int.e) & int.e < 0, 2, NA)),
-                 slope.e.cat = ifelse(!is.na(slope.e) & slope.e > 0, 1, 
-                                      ifelse(!is.na(slope.e) & slope.e < 0, 2, NA))) |> 
-  dplyr::mutate(bi.m = paste(int.m.cat, slope.m.cat, sep = "-"),
-                bi.e = ifelse(is.na(int.e.cat), NA, paste(int.e.cat, slope.e.cat, sep = "-"))) |> 
-  dplyr::select(tip.label, bi.m, bi.e) 
+sPDF <- cleangeo::clgeo_Clean(sPDF)
 
-p <- ggtree::ggtree( my_tree, layout = "rectangular", linewidth = 0.2)
+continents <- sPDF |> 
+  sf::st_as_sf() |> 
+  dplyr::filter(!is.na(Stern))
 
-p2 <-
-  p %<+% fam_bi + 
-  geom_tippoint( aes(color = bi.m), size = 1.5) +
-  geom_tippoint( aes(color = bi.e), size = 1.5, position = position_nudge(x = 3)) + 
-  biscale::bi_scale_color(pal = "BlueOr", na.value = "white", dim = 2, rotate_pal = TRUE) +
-  theme(legend.position = "none") +
-  geom_tiplab(offset = 4.1, size = 2.5) +
-  theme(plot.margin = unit(c(2, 20, 2, 2), "mm")) +
-  coord_cartesian(clip = "off")
-    
-leg <- bi_legend(
-  pal = "BlueOr", dim = 2, rotate_pal = TRUE,
-            xlab = "Baseline onset",
-            ylab = "Light pollution effect",
-            size = 9,
-            arrows = FALSE) +
-  theme(plot.background = element_rect(fill = NA, color = NA), 
-        panel.background = element_rect(fill = NA, color = NA))
+bounding_box <- sf::st_bbox(c(xmin = -180,
+                              ymin = -90,
+                              xmax = 180,
+                              ymax = 90), crs = sf::st_crs(4326))
 
-cowplot::ggdraw() +
-  draw_plot( p2 ) +
-  draw_plot( leg, 0.03, 0.55, 0.47, 0.47)
+crop_box <- sf::st_as_sfc(sf::st_bbox(c(
+  xmin = -125,
+  ymin = -60, 
+  xmax = 160, 
+  ymax = 80), crs = sf::st_crs(4326)))
+
+cont_crop <- sf::st_crop(continents, crop_box)
+
+# Create a global polygon grid with cell_size spacing
+global_grid_5 <- sf::st_make_grid(sf::st_as_sfc(bounding_box),
+                                  cellsize = c(5, 5), crs = sf::st_crs(4326), what = "polygons")
+
+
+# make sf object
+global_sf_5 <- sf::st_sf(geometry = global_grid_5) |> 
+  dplyr::mutate(grid_ID_cell_5 = dplyr::row_number())
+
+# 3 example species
+# Eurasian Blackbird, Magpie-lark, Northern Cardinal
+sp_cells <- d_onset |> 
+  dplyr::filter( sci_name %in% c("Turdus merula",
+                                 "Grallina cyanoleuca",
+                                 "Cardinalis cardinalis")) |> 
+  dplyr::select(sci_name, grid_ID_cell_5, week, sp_cell5_week) |> 
+  dplyr::distinct() |> 
+  dplyr::mutate(sp_cell5_week = as.character(sp_cell5_week))
+
+p <- m1_ranef$cond$`sp_cell5_week:family` |> 
+  tibble::as_tibble( rownames = "group") |>
+  tidyr::separate(group, into = c("sp_cell5_week", "family"), sep = ":") |> 
+  dplyr::right_join(sp_cells) |> 
+  dplyr::select(sci_name, week, grid_ID_cell_5, alan_sc) |> 
+  dplyr::left_join(global_sf_5) |> 
+  sf::st_as_sf() |> 
+  sf::st_make_valid()
+
+combos <- p |> 
+  dplyr::group_by(sci_name, week) |> 
+  dplyr::summarise(m.slope = mean(alan_sc)) |> 
+  dplyr::filter(m.slope == min(m.slope) | m.slope == max(m.slope)) |> 
+  sf::st_drop_geometry() |> 
+  dplyr::group_by(sci_name) |> 
+  dplyr::mutate(type = ifelse(m.slope == min(m.slope), "Onset advanced the most", "Onset advanced the least")) |> 
+  dplyr::select(sci_name, week, type) |> 
+  dplyr::mutate(type = factor(type, levels = c("Onset advanced the most", "Onset advanced the least")))
+
+scale0 <- function(x){
+  x.sc <- rep(NA,)
+  for(i in 1:length(x)){
+    if(x[i] == 0){
+      x.sc[i] <- 0
+    } else if(x[i] > 0){
+      x.sc[i] <- x[i]/max(x)
+    } else if(x[i] < 0){
+      x.sc[i] <- -x[i]/min(x)
+    }
+  }
+  return(x.sc)
+}
+
+sp_plot <-
+  sf::st_centroid(p) |> 
+  sf::st_coordinates() |> 
+  cbind(grid_ID_cell_5 = p$grid_ID_cell_5,
+        week = p$week,
+        sci_name = p$sci_name) |> 
+  tibble::as_tibble() |> 
+  dplyr::mutate(across(X:week, function(x) as.numeric(x))) |> 
+  dplyr::filter(! (sci_name == "Turdus merula" & Y < 0)) |> 
+  dplyr::left_join(p) |> 
+  dplyr::right_join(combos) |> 
+  dplyr::group_by(sci_name) |> 
+  dplyr::mutate( slope.sc = scale0(alan_sc))
+
+# quick check of effect sizes
+# sp_plot |> 
+#   sf::st_drop_geometry() |> 
+#   dplyr::filter(sci_name == "Cardinalis cardinalis") |> 
+#   dplyr::select(X, Y, week, alan_sc) |> 
+#   dplyr::group_by(week) |> 
+#   dplyr::summarise(mean = mean(alan_sc)) |> 
+#   dplyr::cross_join(
+#     tibble::tibble(
+#       alan = c( min(d_onset$alan_sc), max(d_onset$alan_sc)))) |> 
+#   mutate( y = 1 + mean*alan) |> 
+#   dplyr::mutate(alan = ifelse(alan < 0, "Dark", "Bright")) |> 
+#   pivot_wider(names_from = alan, values_from = y) |> 
+#   mutate(diff = (Dark - Bright)*60)
+
+ggplot() +
+  theme_void() +
+  geom_sf(data = cont_crop, aes(geometry = geometry),
+          color = NA, fill = "gray90") +
+  geom_sf(data = sp_plot, (aes(geometry = geometry,
+                               fill = slope.sc)),
+          linewidth = 0.1) +
+  facet_wrap(~type, nrow = 3) +
+  scale_fill_gradient2(
+    "Light pollution effect",
+    low = MetBrewer::MetPalettes$Isfahan1[[1]][1],
+    mid = "white",
+    high = MetBrewer::MetPalettes$Isfahan1[[1]][6]) +
+  theme(strip.text = element_text(size = 9, 
+                                  color = "black"), 
+        legend.position = "bottom",
+        legend.title.position = "top",
+        # legend.key.size = unit(3, units = "mm"),
+        legend.key.width = unit(5, units = "mm"),
+        panel.spacing = unit(-1, "lines"),
+        legend.key.height = unit(2, units = "mm"),
+        legend.title = element_text(size = 9,
+                                    hjust = 0.5,
+                                    color = "black"), 
+        legend.box.margin = margin(-25, 0, 5, 0, unit = "pt"),
+        legend.text = element_text(size = 8, 
+                                   color = "white"), 
+        legend.ticks = element_blank(),
+        legend.frame = element_rect(color = "black", linewidth = 0.2),
+        plot.background = element_rect(color = NA, fill = "white"))
 
 setwd(here::here("Results/Figures"))
-
 ggsave(
   filename = "figure_04a.png", 
-  width = 4.25, 
-  height = 7.25, 
+  width = 3.25, 
+  height = 3.75, 
   units = "in", 
   dpi = 600)
