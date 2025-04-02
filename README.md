@@ -164,6 +164,15 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
   | date | Date |
   | ill | Illumination (brightness) |
   | phase | Percent of moon face illuminated |
+
+* [noct_locs_id.csv](./data/noct_locs_id.csv) Coordinate/date information for extracting light values for updated nocturnal analysis
+  | Variable | Meaning |
+  |----------|---------|
+  | id | ID for latitude, longitude, date combination |
+  | lat | Latitude of BirdWeather sensor |
+  | lon | Longitude of BirdWeather sensor |
+  | date | Date |
+  
 * [nocturnal_species.csv](./data/nocturnal_species.csv) List of nocturnal species
   | Variable | Meaning |
   |----------|---------|
