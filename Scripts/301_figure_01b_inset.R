@@ -15,7 +15,7 @@ ggplot(d, aes(x = alan)) +
   geom_histogram(fill = "#F7C267", color = "black", linewidth = 0.2) +
   theme_classic() +
   labs(x = "ln(Radiance + 1)",
-       y = "Count" ) +
+       y = "# Birdweather\nlocations" ) +
   theme( plot.background = element_rect( fill = "#04050F", color = NA),
          panel.background = element_rect( fill = "#04050F", color = NA),
          axis.line = element_line(color = "white", linewidth = 0.2),
