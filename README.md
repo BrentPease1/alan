@@ -189,7 +189,7 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
     |----------|---------|
     | response | Response variable (onset or cessation) |
     | predictors | Predictor variables in model |
-    | term | Term within the model. These include fixed effects, standard deviation for random terms (SD), correlations between random terms (Cor), and several model fit statitics( R2 Cond, AIC, RMSE). In this column, *light* is light pollution, *cavity* is nest type (cavity: 1; open: 0), *ground* is proportion of time species spends ground foraging, *latitude* is latitude, and *range_size* is geographic range size |
+    | term | Term within the model. These include fixed effects, standard deviation for random terms (SD), correlations between random terms (Cor), and several model fit statitics( R2 Cond, AIC, RMSE). In this column, *light* is light pollution, *cavity* is nest type (cavity: 1; open: 0), *eye size* is corneal diameter, *semi-open habitat* is the 2nd-level of the habitat density variable, *open habitat* is the 3rd-level of the habitat density variable (intercept for this model representes closed habitats), *latitude* is latitude, *partial migrant* is the 2nd-level of the migration variable, *migrant* is the 3rd-level of the migration variable (intercept for this model represents sedentary species), *species richness* is the number of species present at a BirdWeather station, and *range_size* is geographic range size |
     | estimate | Value of the point estimate |
     | std_error | Standard error of the estimate |
     | gof | Value of the goodness of fit stats |
