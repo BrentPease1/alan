@@ -23,14 +23,20 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
 * [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R). Script reads in range maps for all focal species. Range maps come from [BirdLife International](https://datazone.birdlife.org/species/requestdis). Spatial data files are too large to upload in this repository but can be requested for download for the BirdLife link. The script buffers range maps by 100km and removes detections of a species if outside of the buffered range. Range maps for a small number of species had invalid geometries, which prevented the automated spatial range map filtering, and so these species we plotted the range maps and species detections, saved as PDF in [error_species_maps](./data/error_species_maps), and manually removed the maps to identify out-of-range records to remove.
 * [105_data-prep_final_formatting.R](./Scripts/105_data-prep_final_formatting.R). Final script for data prep prior to analysis. Resolves outstanding species name issues and omits potentially errorenous BirdNET detections from the BirdWeather output based on the previous range filtering step. Output from this script is stored in [vocalization_activity](./data/vocalization_activity) and is read into the [analysis script](./Scripts/201_analysis_fit_all_models_tmb.R).
 * [111_revisions_data-prep_extract_noise.R]
+* [111_revisions_data-prep_extract_noisev2.R]
 * [112_revisions_calculate_spp_rich_tot_vocs.R]
 * [113_revisions_calculate_moon_phase.R]
 * [114_revisions_nocturnal_vocal_activity.R]
+* [114_revisions_nocturnal_vocal_activityV2.R]
+* [114_revisions_nocturnal_vocal_activityV3.R]
 * [115_revisions_nocturnal_vocal_activity_tot_vocs.R]
 * [116_revisions_need_alan.R]
 * [117_revisions_collate_road_distance_data.R]
 * [118_revisions_collate_nocturnal_files.R]
+* [119_revisions_collate_tot_vocs.R]
 * [201_analysis_fit_all_models_tmb.R](./Scripts/201_analysis_fit_all_models_tmb.R). Script for running all analyses presented in the manuscript. Both vocalization onset and evening cessation analyzed within.
+* [202_road_analysis.R](./Scripts/202_road_analysis.R) Script to fit models with distance-to-road as a proxy for noise pollution (see supplement)
+* [203_nocturnal_analysis.R](./Scripts/203_nocturnal_analysis.R) Script to fit models for nocturnal species (see supplement)
 * [301_figure_01b_inset.R](./Scripts/301_figure_01b_inset.R). Script for creating Fig. 1b
 * [302_figure_01d.R](./Scripts/302_figure_01d.R). Script for creating Fig. 1d
 * [303_figure_02b-c.R](./Scripts/303_figure_02b-c.R). Script for creating Fig. 2b-c
