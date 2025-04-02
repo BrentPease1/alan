@@ -98,4 +98,5 @@ nadir <- dplyr::full_join(africa, asia) |>
   dplyr::full_join(sam)
 
 setwd(here::here("data/vocalization_activity"))
-readr::write_csv(naidr, "nocturnal_nadir_v01.csv")
+# saving as RData instead of CSV to stay within file size limits for GitHub
+save(nadir, file = "nocturnal_nadir_v01.RData")

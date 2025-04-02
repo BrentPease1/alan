@@ -21,7 +21,9 @@ global_grid_5 <- sf::st_make_grid(sf::st_as_sfc(bounding_box),
   sf::st_sf() |> 
   dplyr::mutate(ID = dplyr::row_number())
 
-coords <- readr::read_csv(here::here("data/vocalization_activity/nocturnal_nadir_v01.csv")) |> 
+load(here::here("data/vocalization_activity/nocturnal_nadir_v01.RData"))
+
+coords <- nadir |> 
   dplyr::select(lat, lon) |> 
   dplyr::distinct() |> 
   sf::st_as_sf(coords = c("lon", "lat"), crs = 4326)
@@ -40,9 +42,10 @@ moon <- readr::read_csv(here::here("data/moon_data.csv")) |>
 
 alan <- readr::read_csv(here::here("data/vocal_activity_annotated_revisions_noct_locs_id.csv")) |> 
   dplyr::select(lat, lon, date, avg_rad) |> 
-  dplyr::distinct()
+  dplyr::distinct() |> 
+  dplyr::mutate(date = lubridate::mdy(date))
 
-nadir <- readr::read_csv(here::here("data/vocalization_activity/nocturnal_nadir_v01.csv")) |> 
+nadir <- nadir |> 
   dplyr::mutate(month = lubridate::month(date)) |> 
   dplyr::select(lat, lon, date, week, month, sci_name, com_name, nadir = min_time_nadir) |> 
   dplyr::left_join(alan) |> 
