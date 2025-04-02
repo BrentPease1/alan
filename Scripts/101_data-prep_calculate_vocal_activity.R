@@ -15,7 +15,6 @@ overwrite <- T
 confidence_cutoff <- c(0, 0.5, 0.75)
 detection_filter <- c(10,25,100)
 continents <- c("Africa", "Asia", "Europe", "North America", "Oceania", "South America")
-continents <- c("Africa", "Asia")
 
 for(c in continents){
   if(c == "North America" | c == "South America"){
