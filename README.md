@@ -154,7 +154,15 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
     | day | Day of the year |
     | year| Year | 
  * <ins>vocal_activity_annotated_conf_0.75_det100.csv</ins>. Observed vocalization timing response variables with conservative filtering (confidence >=0.75 with >=100 detections for a species per station-date). **NOTE:** this file is too large to share on GitHub (7.5 million rows). It can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1tiRojwiy-04pXxNqryKWm72y_LS0jKRq/view?usp=sharing). Download this file and put it in the [data/vocalization_activity](./data/vocalization_activity) folder to run data preparation script [105_data-prep_final_formatting.R](./Scripts/105_data-prep_final_formatting.R). This file has the same column meanings as the table above.
-
+ 
+* [moon_data.csv](./data/moon_data.csv) Moonlight data for nocturnal analysis
+  | Variable | Meaning |
+  |----------|---------|
+  | lat | Latitude of BirdWeather sensor |
+  | lon | Longitufde of BirdWeather sensor |
+  | date | Date |
+  | ill | Illumination (brightness) |
+  | phase | Percent of moon face illuminated | 
 
 ### Results
 * [BirdWeather](./Results/Birdweather) Contains raw output from [101_data-prep_calculate_vocal_activity.R](./Scripts/101_data-prep_calculate_vocal_activity.R)
