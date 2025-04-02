@@ -164,6 +164,12 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
   | date | Date |
   | ill | Illumination (brightness) |
   | phase | Percent of moon face illuminated |
+* [nocturnal_species.csv](./data/nocturnal_species.csv) List of nocturnal species
+  | Variable | Meaning |
+  |----------|---------|
+  | sci_name | Scientific name according to BirdWeather |
+  | nocturnal | indicator column (1) flagging species as nocturnal (from EltonTraits) |
+  
 * [rd_dist.csv](./data/rd_dist.csv) Distance-to-road data (proxy for noise pollution)
   | Variable | Meaning |
   |----------|---------|
