@@ -3,9 +3,13 @@ library(here)
 library(effects)
 library(MetBrewer)
 
-setwd(here::here("results"))
+setwd(here::here("Results"))
 
-load("tmb_onset_models_family.RData")
+load("onset.RData")
+load("cessation.RData")
+
+rm(m1b, m2, m3, m4, m5, m6, m7, m8,
+   e2, e3, e4, e5, e6, e7, e8)
 
 m1_me <- effects::effect(term = "alan_sc", mod = m1)
 
@@ -14,9 +18,7 @@ alan_z <- scale(log1p(d_onset$avg_rad))
 m1_df <- as.data.frame(m1_me) |> 
   dplyr::mutate(alan = alan_sc * attr(alan_z, "scaled:scale") +
                   attr(alan_z, "scaled:center")) |> 
-  tibble::add_column(response = "Morning onset")
-
-load("tmb_evening_models_family.RData")
+  tibble::add_column(response = "Onset")
 
 e1_me <- effects::effect(term = "alan_sc", mod = e1)
 
@@ -25,7 +27,7 @@ alan_z_e <- scale(log1p(d_e$avg_rad))
 e1_df <- as.data.frame(e1_me) |> 
   dplyr::mutate(alan = alan_sc * attr(alan_z_e, "scaled:scale") +
                   attr(alan_z_e, "scaled:center")) |>
-  tibble::add_column(response = "Evening cessation")
+  tibble::add_column(response = "Cessation")
 
 ggplot( data = m1_df, 
         aes(x = alan, y = fit)) +
@@ -40,6 +42,7 @@ ggplot( data = m1_df,
         x = "Light pollution: ln(Radiance + 1)") +
   theme(
     legend.position = "none", 
+    panel.grid = element_line(linewidth = 0.1, color ="gray90"),
     plot.background = element_rect(fill = "white", color = NA),
     panel.background = element_rect(fill = "white", color = NA),
     strip.text = element_text(color = "black", size = 10), 
@@ -68,6 +71,7 @@ e1_df |>
         x = "Light pollution: ln(Radiance + 1)") +
   theme(
     legend.position = "none", 
+    panel.grid = element_line(linewidth = 0.1, color ="gray90"),
     plot.background = element_rect(fill = "white", color = NA),
     panel.background = element_rect(fill = "white", color = NA),
     strip.text = element_text(color = "black", size = 10), 
