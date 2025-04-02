@@ -60,8 +60,7 @@ tot.voc.com <- tot.voc |>
   dplyr::select(lat, lon, date, tot, sr, shan) |> 
   dplyr::distinct()
 
-setwd(here::here("data"))
-eye <- readr::read_csv("ritland_clean.csv")
+eye <- readr::read_csv(here::here("data/traits/ritland_clean.csv"))
 
 eye.sp <- key2 |> 
   dplyr::select(sci_name = sci_name_bw, sci_name_elton) |> 
