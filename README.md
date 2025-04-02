@@ -176,6 +176,16 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
   | lat | Latitude of BirdWeather sensor |
   | lon | Longitufde of BirdWeather sensor |
   | rd  | Distance (m) between BirdWeather sensor and nearest road |
+* [vocal_activity_annotated_revisions_noct_locs_id.csv](./data/vocal_activity_annotated_revisions_noct_locs_id.csv) Updated light data for nocturnal species analysis. We needed light data for more locations, since the total number of vocalizations analysis had more sites (b/c of the omission of the detection filter)
+  | Variable | Meaning |
+  |----------|---------|
+  | id | ID for latitutde, longitude, date combination |
+  | lat | Latitude of BirdWeather sensor |
+  | lon | Longitude of BirdWeather sensor |
+  | date | Date |
+  | year | Year |
+  | month | Month of the year |
+  | avg_rad | Radiance (light pollution) extracted from VIIRS data product for coordinates and month |
 
 ### Results
 * [BirdWeather](./Results/Birdweather) Contains raw output from [101_data-prep_calculate_vocal_activity.R](./Scripts/101_data-prep_calculate_vocal_activity.R)
