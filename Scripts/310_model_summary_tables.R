@@ -6,8 +6,8 @@ library(janitor)
 
 setwd(here::here("results"))
 
-load("tmb_onset_models_family.RData")
-load("tmb_evening_models_family.RData")
+load("onset.RData")
+load("cessation.RData")
 
 m1_ranef <- glmmTMB::ranef( m1 )
 e1_ranef <- glmmTMB::ranef( e1 )
@@ -56,15 +56,21 @@ readr::write_csv( sp_param, "species_level_parameters.csv")
 modelsummary::modelsummary( 
   models = list(
     "Onset, base" = m1,
-    "Onset, range size" = m3, 
+    "Onset, eye size" = m7,
     "Onset, cavity" = m4,
-    "Onset, foraging" = m5,
+    "Onset, migration" = m8,
+    "Onset, range size" = m3, 
+    "Onset, habitat" = m5,
     "Onset, latitude" = m2,
+    "Onset, species richness" = m6, 
     "Cessation, base" = e1,
-    "Cessation, range size" = e3, 
+    "Cessation, eye size" = e7,
     "Cessation, cavity" = e4,
-    "Cessation, foraging" = e5,
-    "Cessation, latitude" = e2),
+    "Cessation, migration" = e8,
+    "Cessation, range size" = e3, 
+    "Cessation, habitat" = e5,
+    "Cessation, latitude" = e2,
+    "Cessation, species richness" = e6),
   output = "model_summaries.csv")
 
 d <- readr::read_csv("model_summaries.csv")
@@ -79,10 +85,15 @@ formatted <-  d |>
   dplyr::mutate( term = stringr::str_replace_all(term, "\\(Intercept\\)", "intercept")) |>
   dplyr::mutate( term = stringr::str_replace_all(term, "Intercept", "intercept")) |>
   dplyr::mutate( term = stringr::str_replace_all(term, "alan_sc", "light")) |> 
-  dplyr::mutate( term = stringr::str_replace_all(term, "range_size_sc", "range_size")) |> 
+  dplyr::mutate(term = stringr::str_replace_all(term, "cd", "eye size")) |> 
   dplyr::mutate( term = stringr::str_replace_all(term, "cavity1", "cavity")) |> 
-  dplyr::mutate( term = stringr::str_replace_all(term, "ground_sc", "ground")) |> 
+  dplyr::mutate( term = stringr::str_replace_all(term, "migration2", "partial migrant")) |> 
+  dplyr::mutate( term = stringr::str_replace_all(term, "migration3", "migrant")) |> 
+  dplyr::mutate( term = stringr::str_replace_all(term, "range_size_sc", "range_size")) |> 
+  dplyr::mutate( term = stringr::str_replace_all(term, "hd2", "semi-open habitat")) |> 
+  dplyr::mutate( term = stringr::str_replace_all(term, "hd3", "open habitat")) |> 
   dplyr::mutate( term = stringr::str_replace_all(term, "lat_sc", "latitude")) |> 
+  dplyr::mutate( term = stringr::str_replace_all(term, "sr", "species richness")) |> 
   dplyr::mutate( term = stringr::str_replace_all(term, "sp_weekfamily", "sp_week : family")) |> 
   dplyr::mutate( term = stringr::str_replace_all(term, "sp_cell5_weekfamily", "sp_cell_week : family")) |>
   dplyr::arrange(response, predictor) |> 
