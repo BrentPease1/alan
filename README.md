@@ -250,6 +250,7 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
   * [figure_04c.png](./Results/Figures/figure_04c.png) Figure 4C
   * [figure_s01.png](./Results/Figures/figure_s01.png) Figure S1
   * [figure_s02.png](./Results/Figures/figure_s02.png) Figure S2
+  * [figure_s02.pptx](./Results/Figures/figure_s02.pptx) Figure S2, PowerPoint file for annotation
   * [figure_s03.png](./Results/Figures/figure_s03.png) Figure S3
 * [Tables](./Results/Tables) Contains several supplemental tables summarizing model output
   * [family_level_parameters.csv](./Results/Tables/family_level_parameters.csv) Family-level parameters (intercepts and slopes) from base onset and cessation models
