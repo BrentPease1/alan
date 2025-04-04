@@ -321,7 +321,7 @@ coefficients <- summary(m2)$coefficients$cond |>
   tibble::add_column(period = "Onset", 
                      cov.lab = "Latitude") |> 
   dplyr::select(period, cov.lab, param, estimate, std_error, z_value, pr_z) |> 
-  dplyr:full_join(
+  dplyr::full_join(
     summary(e2)$coefficients$cond |> 
       tibble::as_tibble(rownames = "param") |> 
       janitor::clean_names() |> 
@@ -377,7 +377,7 @@ coefficients <- summary(m2)$coefficients$cond |>
       tibble::add_column(period = "Onset", 
                          cov.lab = "Sp. richness") |> 
       dplyr::select(period, cov.lab, param, estimate, std_error, z_value, pr_z)|> 
-      full_join(
+      dplyr::full_join(
         summary(e6)$coefficients$cond |> 
           as_tibble(rownames = "param") |> 
           janitor::clean_names() |> 
@@ -391,7 +391,7 @@ coefficients <- summary(m2)$coefficients$cond |>
       tibble::add_column(period = "Onset", 
                          cov.lab = "Eye size") |> 
       dplyr::select(period, cov.lab, param, estimate, std_error, z_value, pr_z)|> 
-      full_join(
+      dplyr::full_join(
         summary(e7)$coefficients$cond |> 
           tibble::as_tibble(rownames = "param") |> 
           janitor::clean_names() |> 
@@ -405,14 +405,14 @@ coefficients <- summary(m2)$coefficients$cond |>
       tibble::add_column(period = "Onset", 
                          cov.lab = "Migration") |> 
       dplyr::select(period, cov.lab, param, estimate, std_error, z_value, pr_z)|> 
-      full_join(
+      dplyr::full_join(
         summary(e8)$coefficients$cond |> 
           tibble::as_tibble(rownames = "param") |> 
           janitor::clean_names() |> 
           tibble::add_column(period = "Cessation", 
                              cov.lab = "Migration") |> 
           dplyr::select(period, cov.lab, param, estimate, std_error, z_value, pr_z))) |> 
-  dplyr:mutate(
+  dplyr::mutate(
     cov.lab = factor(cov.lab,
                      levels = c("Eye size",
                                 "Nest",
@@ -421,7 +421,6 @@ coefficients <- summary(m2)$coefficients$cond |>
                                 "Habitat",
                                 "Latitude",
                                 "Sp. richness")))
-
 
 star <- coefficients |> 
   dplyr::filter(grepl(":", param)) |>
@@ -435,7 +434,7 @@ star <- coefficients |>
                 cov.lab, star.lab) |> 
   dplyr::mutate(cov.lab = as.character(cov.lab)) |> 
   dplyr::mutate(cov.lab = ifelse(is.na(cov.lab), "Sp. richness", cov.lab)) |> 
-  dplyr:mutate(
+  dplyr::mutate(
     cov.lab = factor(cov.lab,
                      levels = c("Eye size",
                                 "Nest",
@@ -485,7 +484,7 @@ ggplot() +
     legend.key.size = unit(3, "mm"),
     plot.background = element_rect(fill = "white", color = NA),
     panel.background = element_rect(fill = "white", color = NA),
-    strip.text = element_text(color = "black", size = 9.5),
+    strip.text = element_text(color = "black", size = 9.5, face = "bold"),
     axis.title = element_text(color = "black", size = 9.5),
     axis.text = element_text(color = "black", size = 8.5),
     axis.line = element_line(color = "black", linewidth = 0.3))
