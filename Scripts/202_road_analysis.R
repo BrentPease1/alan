@@ -239,6 +239,8 @@ rect_df <- tidyr::expand_grid(
                                      ifelse(response == "Cessation" & period == "Day", 0, max(both$upper)))))
 
 
+
+
 ggplot() +
   facet_wrap(~response) +
   geom_rect(data = filter(rect_df, period == "Day"),
@@ -268,7 +270,8 @@ ggplot() +
   scale_fill_manual(values = MetBrewer::MetPalettes$Cassatt2[[1]][c(3, 8)]) +
   theme(
     legend.position = "bottom",
-    panel.grid = element_line(linewidth = 0.1, color ="gray90"),
+    # panel.grid = element_line(linewidth = 0.1, color ="gray90"),
+    panel.grid = element_blank(),
     plot.background = element_rect(fill = "white", color = NA),
     panel.background = element_rect(fill = "white", color = NA),
     legend.title = element_text(color = "black", size = 10), 

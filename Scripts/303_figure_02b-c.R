@@ -1,3 +1,4 @@
+library(glmmTMB)
 library(tidyverse)
 library(here)
 library(effects)
@@ -42,7 +43,8 @@ ggplot( data = m1_df,
         x = "Light pollution: ln(Radiance + 1)") +
   theme(
     legend.position = "none", 
-    panel.grid = element_line(linewidth = 0.1, color ="gray90"),
+    # panel.grid = element_line(linewidth = 0.1, color ="gray90"),
+    panel.grid = element_blank(),
     plot.background = element_rect(fill = "white", color = NA),
     panel.background = element_rect(fill = "white", color = NA),
     strip.text = element_text(color = "black", size = 10), 
@@ -71,7 +73,8 @@ e1_df |>
         x = "Light pollution: ln(Radiance + 1)") +
   theme(
     legend.position = "none", 
-    panel.grid = element_line(linewidth = 0.1, color ="gray90"),
+    # panel.grid = element_line(linewidth = 0.1, color ="gray90"),
+    panel.grid = element_blank(),
     plot.background = element_rect(fill = "white", color = NA),
     panel.background = element_rect(fill = "white", color = NA),
     strip.text = element_text(color = "black", size = 10), 
