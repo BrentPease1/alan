@@ -94,6 +94,10 @@ m1_me <- tibble::tibble(alan_sc = seq(from = min(nadir$alan_sc),
     geom_line( data = m1_me, aes(x = alan, y = fit),
                color = MetBrewer::MetPalettes$Hiroshige[[1]][9], 
                linewidth = 2) +
+    geom_text(aes(x = 1.3, y = 2.6), 
+              label = expression(bold("Light:")~"-0.04 ± 0.03, p = 0.20"),
+              size = 2.55,
+              hjust = 0) +
     theme_minimal() +
     labs( y = "Time from nadir (hr)",
           x = "ln(Radiance + 1)",
@@ -102,7 +106,8 @@ m1_me <- tibble::tibble(alan_sc = seq(from = min(nadir$alan_sc),
     theme_minimal() +
     theme(
       plot.title = element_text(color = "black", size = 10),
-      panel.grid = element_line(linewidth = 0.1, color ="gray90"),
+      # panel.grid = element_line(linewidth = 0.1, color ="gray90"),
+      panel.grid = element_blank(),
       plot.background = element_rect(fill = "white", color = NA),
       panel.background = element_rect(fill = "white", color = NA),
       legend.title = element_text(color = "black", size = 10), 
@@ -145,37 +150,61 @@ m2_me <- new.data |>
   dplyr::mutate(phase_sc = ifelse(phase_sc < 0, "New", "Full")) |> 
   dplyr::mutate(alan = alan_sc*attr(alan.sc.tot, "scaled:scale") + attr(alan.sc.tot, "scaled:center"))
 
-( tot.plot <- ggplot(m2_me, aes(x = alan, y = fit, color = factor(phase_sc))) +
-    geom_ribbon(aes(ymin = fit - se, ymax = fit + se, fill = factor(phase_sc)), color = NA, alpha = 0.4) +
-    geom_line(linewidth = 2) +
+( tot.plot <- ggplot() +
+    geom_ribbon(
+      data = m2_me, 
+      aes(x = alan,ymin = fit - se, ymax = fit + se, fill = factor(phase_sc)), color = NA, alpha = 0.4) +
+    geom_line(data = m2_me, aes(x = alan, y = fit, color = factor(phase_sc)),
+              linewidth = 2) +
     theme_minimal() +
     labs( y = "Number of vocalizations per night",
           x = "ln(Radiance + 1)",
-          color = "Moon phase",
-          fill = "Moon phase",
+          color = "Moon\nphase",
+          fill = "Moon\nphase",
           title = ("(B)")) +
     theme_minimal() +
+    geom_text(aes(x = 1, y = 1.8),
+              label = expression(bold("Light:")~"-0.43 ± 0.06, p < 0.0001"),
+              size = 2.55, 
+              color = "black", 
+              hjust = 0) +
+    geom_text(aes(x = 1, y = 1.725),
+              label = expression(bold("Moon:")~"0.16 ± 0.06, p = 0.006"),
+              size = 2.55, 
+              color = "black",
+              hjust = 0) +
+    geom_text(aes(x = 1,
+                  y = 1.65),
+              label = expression(bold("Light x Moon:")~"0.13 ± 0.06, p = 0.02"),
+              size = 2.55, 
+              color = "black",
+              hjust = 0) +
     scale_color_manual(values = MetBrewer::MetPalettes$Demuth[[1]][c(4, 9)]) +
     scale_fill_manual(values = MetBrewer::MetPalettes$Demuth[[1]][c(4, 9)]) +
+    coord_cartesian(clip = "off") +
     theme(
       # legend.position = "bottom",
+      legend.justification = "bottom",
       plot.title = element_text(color = "black", size = 10),
-      panel.grid = element_line(linewidth = 0.1, color ="gray90"),
+      # panel.grid = element_line(linewidth = 0.1, color ="gray90"),
+      panel.grid = element_blank(),
       plot.background = element_rect(fill = "white", color = NA),
+      legend.key.size = unit(c(0.75,0.75), "lines"),
+      legend.box.margin = margin(0, -45, 0, 0, unit = "pt"),
       panel.background = element_rect(fill = "white", color = NA),
-      legend.title = element_text(color = "black", size = 10), 
-      legend.text = element_text(color = "black", size = 9),
+      legend.title = element_text(color = "black", size = 9), 
+      legend.text = element_text(color = "black", size = 8),
       strip.text = element_text(color = "black", size = 11),
       axis.title = element_text(color = "black", size = 10),
       axis.text = element_text(color = "black", size = 9),
-      axis.line = element_line(color = "black", linewidth = 0.3)) )
+      axis.line = element_line(color = "black", linewidth = 0.3)) ) 
 
 nadir.plot | tot.plot
 
 setwd(here::here("Results/Figures"))
 ggsave(
   filename = "figure_s03.png", 
-  width = 5, 
+  width = 5.5, 
   height = 2.75, 
   units = "in", 
   dpi = 600)
