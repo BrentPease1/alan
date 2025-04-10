@@ -113,10 +113,6 @@ for (c in continents) {
       )
     }
     
-    # I think station.type should only be birdnetpi or PUC
-    # I also think "stream_youtube" is OK but not totally sure?
-    # stream_audio seems to be erroneous
-    # I don't think that column always exists, though
     if ("station.type" %in% names(bw)) {
       bw <- bw[!(station.type %in% c("stream_audio", "stream_youtube")), ]
     }
@@ -294,7 +290,7 @@ for (c in continents) {
            here('Results/Birdweather/nocturnalV3'),
            "/",
            c,
-           "/nocturnal_tot_vocsV2.csv"
+           "/nocturnal_tot_vocsV3.csv"
          ))
   
 

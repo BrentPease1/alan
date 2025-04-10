@@ -14,11 +14,11 @@ setDTthreads(0)
 
 # read in global roads
 # Read a specific feature class
-gdb_path <- "C:/Users/siu850591813/Downloads/groads-v1-global-gdb/groads-v1-global-gdb/gROADS_v1.gdb"
+gdb_path <- here("data/roads/groads-v1-global-gdb/groads-v1-global-gdb/gROADS_v1.gdb")
 gdb_data <- st_read(gdb_path, layer = "Global_Roads")
 
 # CONUS SOUND MAP
-sound <- rast("C:/Users/siu850591813/Downloads/CONUS_L50dBA_sumDay_exi.tif")
+sound <- rast(here("data/sound_map/CONUS_L50dBA_sumDay_exi.tif"))
 # overwrite current files?
 overwrite <- T
 

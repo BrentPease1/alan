@@ -10,11 +10,6 @@ library(activity)
 library(stringr)
 setDTthreads(0)
 
-# for testing loop 
-# c <- 'Africa'
-# m <- 8
-
-
 # overwrite current files?
 overwrite <- T
 
@@ -169,7 +164,7 @@ for (c in continents) {
     bw_locs <- bw[!duplicated(station_date)]
 
     
-    continent_holder[[continent_counter]] <- calculateMoonlightIntensity(lat = bw_locs$lat, lon = bw_locs$lon, date = bw_locs$date, e = 0.28)
+    continent_holder[[continent_counter]] <- moonlit::calculateMoonlightIntensity(lat = bw_locs$lat, lon = bw_locs$lon, date = bw_locs$date, e = 0.28)
     
     
     
