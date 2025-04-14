@@ -268,7 +268,7 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
     | std_error | Standard error of the estimate |
     | gof | Value of the goodness of fit stats |
   * [model_summaries.csv](./Results/Tables/model_summaries.csv) Same information as above, but in a less intuitive and friendly format.
-  * [species_level_parameters.csv](./Results/Tables/species_level_parameters.csv) Species-grid cell-week level parameters. Refer to [309_plotting_sp_parameters.R](./Scripts/309_plotting_sp_parameters.R) for information on joining these species-level parameters to the spatial grid cells to which estimates correspond for mapping, etc.
+  * [species_level_parameters.csv](./Results/Tables/species_level_parameters.csv) Species-grid cell-week level parameters. Refer to [311_plotting_sp_parameters.R](./Scripts/311_plotting_sp_parameters.R) for information on joining these species-level parameters to the spatial grid cells to which estimates correspond for mapping, etc.
     | Variable | Meaning |
     |----------|---------|
     | family | Taxonomic family |
