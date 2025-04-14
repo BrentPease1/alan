@@ -1,4 +1,4 @@
-F# Light pollution prolongs avian activity globally
+# Light pollution prolongs avian activity globally
 
 ### [Brent S. Pease](https://peaselab.com/)†, [Neil A. Gilbert](https://www.gilbertecology.com/)†
 
