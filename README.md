@@ -140,7 +140,7 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
     | N_dets | Number of detections for a species-site-date combination |
      
   * [onset_data_conf_0.75_det_100_grid_10.RData](./data/vocalization_activity/onset_data_conf_0.75_det_100_grid_10.RData). Final data formatted for modeling (morning onset). The RData object contains one table, "final", which has the same column meanings as the cessation data (see table above). The one difference is that the `value` variable is the time of the first vocalization relative to local sunrise, with negative values representing onset prior to sunrise and positive values representing onset after sunrise.
-  * [species_site_combinations_final.csv](./data/vocalization_activity/species_site_combinations_final.csv). Table with valid (based on species range maps) species-site combinations; output of [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R]. The table has the following column meanings:
+  * [species_site_combinations_final.csv](./data/vocalization_activity/species_site_combinations_final.csv). Table with valid (based on species range maps) species-site combinations; output of [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R]). The table has the following column meanings:
     | Variable | Meaning |
     |----------|---------|
     | site | Sensor ID |
