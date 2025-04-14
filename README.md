@@ -30,7 +30,7 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
 * [116_revisions_need_alan.R](./Scripts/116_revisions_need_alan.R). Script to calculate light pollution data for additional sites for the supplemental nocturnal analysis (the "number of detections" analysis did not include as stringent of filters as the main text analysis, so there were some sites that did not appear in the diurnal analysis). 
 * [117_revisions_collate_road_distance_data.R](./Scripts/117_revisions_collate_road_distance_data.R). Road distance data were calculated by continent; this quick script joins the data up into one file.
 * [118_revisions_collate_nocturnal_files.R](./Scripts/118_revisions_collate_nocturnal_files.R). Similarly, nocturnal files are by continent; this script joins them into one. 
-* [119_revisions_collate_tot_vocs.R](./Scipts/119_revisions_collate_tot_vocs.R). Again, script to join up continent files.
+* [119_revisions_collate_tot_vocs.R](./Scripts/119_revisions_collate_tot_vocs.R). Again, script to join up continent files.
 * [201_analysis_fit_all_models_tmb.R](./Scripts/201_analysis_fit_all_models_tmb.R). Script for running all analyses presented in the manuscript. Both vocalization onset and evening cessation analyzed within.
 * [202_road_analysis.R](./Scripts/202_road_analysis.R) Script to fit models with distance-to-road as a proxy for noise pollution (see supplement)
 * [203_nocturnal_analysis.R](./Scripts/203_nocturnal_analysis.R) Script to fit models for nocturnal species (see supplement)
