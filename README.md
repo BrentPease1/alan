@@ -48,7 +48,7 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
 
 ### Data
 * [error_species_maps](./data/error_species_maps) Folder containing output (PDFs with species range maps with BirdWeather detections overlaid) from [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R) for manual review.
-* [range_maps](./data/range_maps) Folder used to hold range map files for focal species. We do not have share permission, so folder will not appear on repository. Range maps come from BirdLife International; the full dataset can be requested at the [BirdLife Data Zone](https://datazone.birdlife.org/species/requestdis).
+* [range_maps](./data/range_maps) Folder used to hold range map files for focal species. We do not have share permission, so folder will not appear on repository. Range maps are available through BirdLife International, which can be accessed at the [BirdLife Data Zone](https://datazone.birdlife.org/species/requestdis).
   * focal_spp_maps.dbf
   * focal_spp_maps.prj
   * focal_spp_maps.shp
