@@ -48,11 +48,11 @@ Light pollution disrupts natural light–dark cues that organisms use as timetab
 
 ### Data
 * [error_species_maps](./data/error_species_maps) Folder containing output (PDFs with species range maps with BirdWeather detections overlaid) from [104_data-prep_range_map_filter.R](./Scripts/104_data-prep_range_map_filter.R) for manual review.
-* [range_maps](./data/range_maps) Folder containing range map files for focal species. Range maps come from BirdLife International; the full dataset can be requested at the [BirdLife Data Zone](https://datazone.birdlife.org/species/requestdis).
-  * [focal_spp_maps.dbf](./data/range_maps/focal_spp_maps.dbf)
-  * [focal_spp_maps.prj](./data/range_maps/focal_spp_maps.prj)
-  * <ins>focal_spp_maps.shp</ins>. **NOTE** the shapefile is too large to share on GitHub; the compressed file can be downloaded with [this GoogleDrive link](https://drive.google.com/file/d/1t9A3Q3A_ABA6P3PNOzWr6hwl-sogE6-Y/view?usp=sharing). 
-  * [focal_spp_maps.shx](./data/range_maps/focal_spp_maps.shx)  
+* [range_maps](./data/range_maps) Folder used to hold range map files for focal species. We do not have share permission, so folder will not appear on repository. Range maps come from BirdLife International; the full dataset can be requested at the [BirdLife Data Zone](https://datazone.birdlife.org/species/requestdis).
+  * focal_spp_maps.dbf
+  * focal_spp_maps.prj
+  * focal_spp_maps.shp
+  * focal_spp_maps.shx
 * [species_keys](./data/species_keys) Folder containing several tables with name keys to join datasets
    * [birdweather_elton_botw_name_key.csv](./data/species_keys/birdweather_elton_botw_name_key.csv) Table containing key to connect BirdWeather, EltonTraits, and BirdLife International names
      | Variable name | Meaning |
