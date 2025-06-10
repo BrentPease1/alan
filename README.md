@@ -1,4 +1,4 @@
-# Light pollution prolongs avian activity globally
+# Light pollution prolongs avian activity
 
 ### [Brent S. Pease](https://peaselab.com/)†, [Neil A. Gilbert](https://www.gilbertecology.com/)†
 
@@ -10,7 +10,7 @@
 __________________________________________________________________________________________________________________________________________
 
 ## Abstract
-Light pollution disrupts natural light–dark cues that organisms use as timetables for life. While studies—typically focusing on individual species—have documented earlier morning onset of bird vocalization in light-polluted landscapes, a synthesis of light pollution effects across species, space, and seasons is lacking. We used a global acoustic dataset of more than 60 million vocal detections, representing 583 diurnal bird species, to synthesize effects of light pollution on avian vocalization timing. Averaged across species, space, and seasons, light pollution prolonged avian vocal activity by approximately 50 minutes. Light pollution responses were strongest for species with large eyes, open nests, migratory habits, and large ranges, and moreover were strongest during the breeding season. Prolonged activity may confer negative, neutral, or positive fitness effects; documenting these fitness effects and curbing light pollution are formidable challenges for 21st-century conservation.
+Light pollution disrupts light–dark cues that organisms use as timetables for life. While studies, typically focusing on individual species, have documented earlier morning onset of bird vocalization in light-polluted landscapes, a synthesis of light pollution effects across species, space, and seasons is lacking. We used a global acoustic dataset of more than 60 million detections, representing 583 diurnal bird species, to synthesize effects of light pollution on avian vocalization. On average, light pollution prolonged vocal activity by 50 minutes. Light pollution responses were strongest for species with large eyes, open nests, migratory habits, and large ranges, and during the breeding season. Prolonged activity may confer negative, neutral, or positive fitness effects; documenting these fitness effects and curbing light pollution are challenges for 21st-century conservation. 
 
  $~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~$ <img src="https://github.com/BrentPease1/alan/blob/main/Results/Figures/figure_02.png" width="600" />
  
